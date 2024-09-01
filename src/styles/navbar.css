@@ -1,0 +1,59 @@
+.navbar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(28, 60, 132);
+    width: 100%;
+    height: 80px;
+}
+
+.logo {
+    display: inline-flex;
+    justify-content: center;
+    width: 154px;
+    height: 53px;
+    gap: 0px;
+    opacity: 0px;
+    
+
+}
+
+.navbar-leftside{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+.navbar .navbar-leftside .leftside-buttons{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgb(28, 60, 132);
+    border: none;
+    border-radius: 25%;
+
+    
+}
+
+.navbar .navbar-rightside{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    background-color: transparent;
+}
+
+.navbar-rightside .navbar-demo-button{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
