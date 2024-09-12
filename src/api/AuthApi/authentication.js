@@ -135,7 +135,7 @@ class Authentication{
         });
     
         const requestOptions = {
-          method: 'GET',
+          method: 'POST',
           headers: myHeaders,
           body: raw,
           redirect: 'follow'
