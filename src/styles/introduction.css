@@ -1,0 +1,51 @@
+.introduction-main{
+    display: flex;
+    margin-top: 90px;
+    margin-left: 90px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.introdoction-get-start{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.introdoction-get-start h2{
+    font-size: 50px;
+    line-height: 60px;
+    font: Inter;
+    padding: 0;
+    margin: 0;
+}
+.introdoction-get-start h2 span{
+    font-size: 50px;
+    line-height: 60px;
+    font: Inter;
+    color: #ED1E5A;
+}
+.introdoction-get-start p{
+    font-size: 20px;
+    line-height: 25px;
+    font: Inter;
+    font-weight: 500;
+    color: #1C3C84;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 0;
+}
+.introdoction-get-start button{
+    background-color: #ED1E5A;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    width: 230px;
+    height: 58px;
+    padding: 11px 33px 11px 33px;
+    gap: 10px;
+    border-radius: 39px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24.2px;
+    text-align: center;
+}

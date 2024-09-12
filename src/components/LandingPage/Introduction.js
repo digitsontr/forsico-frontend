@@ -1,11 +1,16 @@
 import React from 'react';
-
+import '../../styles/introduction.css'
 const Introduction = () => {
     return (
-        <section>
-            <h2>Welcome to My Application</h2>
-            <p>This is a brief introduction to what our app does and how it can help you manage your tasks effectively.</p>
-        </section>
+        <div className='introduction-main'>
+            <div className='introdoction-get-start'>
+                <h2>Manage your business <br /> plan with <span>Forsico AI</span></h2>
+                <p>Create business plans with artificial <br /> intelligence, track your work, stay connected <br /> with your teammates</p>
+                <button>Get Started</button>
+            </div>
+            <div className='introduction-design'></div>
+            <div className='introduction-board'></div>
+        </div>
     );
 };
 

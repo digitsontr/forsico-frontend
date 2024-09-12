@@ -1,19 +1,36 @@
 import React, { useState } from 'react';
 import '../../styles/signUp.css';
+import Authentication from '../../api/AuthApi/authentication'
 
 const SignUpModal = ({ onClose, login }) => {
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
+    const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
-
+    const [errorMessage, setErrorMessage] = useState('');  
+    const authentication = new Authentication()
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
+        const nameParts = fullName.trim().split(' ');
         
-        onClose();
+        const firstName = nameParts[0]; 
+        const lastName = nameParts.slice(1).join(' ');
+    
+        try {
+            const result = await authentication.register(userName,email,password,firstName,lastName);
+    
+            if (result.status === true) {
+                onClose();
+            } else {
+                setErrorMessage(result.errors[0].errorMessage);
+            }
+        } catch (error) {
+            setErrorMessage(error.message);
+        }
     };
 
     return (
@@ -43,6 +60,20 @@ const SignUpModal = ({ onClose, login }) => {
                 </div>
                 <div className='signup-modal-separator'>
                     <span>or</span>
+                </div>
+                <div className='signup-modal-input'>
+                    <div className='input-icon-wrapper'>
+                        <img src='./fullNameInput.svg' className='input-icon' alt='Full Name Icon' />
+                        <input
+                            className='signup-input-fullname'
+                            type='text'
+                            name='username'
+                            value={userName}
+                            onChange={(e) => setUserName(e.target.value)}
+                            required
+                            placeholder='Username'
+                        />
+                    </div>
                 </div>
                 <div className='signup-modal-input'>
                     <div className='input-icon-wrapper'>
@@ -93,6 +124,11 @@ const SignUpModal = ({ onClose, login }) => {
                         />
                     </div>
                 </div>
+                {errorMessage && (
+                    <div className='signup-error-message'>
+                        <p>{errorMessage}</p>
+                    </div>
+                )}
                 <div className='signup-modal-terms'>
                     <p className='signup-terms-text'>
                         By clicking the continue button, you agree to our <a href='#'>Terms of Service</a> and <a href='#'>Privacy Policy</a>.

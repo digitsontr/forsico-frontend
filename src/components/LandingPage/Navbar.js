@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LoginModal from '../Auth/LoginModal';
 import SignUpModal from '../Auth/SignUpModal';
+import ForgotPasswordModal from '../Auth/ForgotPasswordModal';
 import Button from "npm-forsico-ui/dist/Button"
 import Dropdown from "npm-forsico-ui/dist/Dropdown"
 import '../../styles/navbar.css';
@@ -8,6 +9,7 @@ import '../../styles/navbar.css';
 const Navbar = () => {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignUpModal, setShowSignUpModal] = useState(false);
+    const [showSForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
     const handleSelect = (item) => {
@@ -16,12 +18,29 @@ const Navbar = () => {
         console.log("select", selectedItem)
     };
 
-    const items = [
-        { value: '1', label: 'seçenek 1', image: '', link:"/" },
-        { value: '2', label: 'seçenek 2', image: 'https://via.placeholder.com/24', link:"/" },
-        { value: '3', label: 'seçenek 3', image: 'https://via.placeholder.com/24' , link:"/"},
+    const projectItems = [
+        { value: '1', label: 'project 1', image: '', link:"/" },
+        { value: '2', label: 'project 2', image: 'https://via.placeholder.com/24', link:"/" },
+        { value: '3', label: 'project 3', image: 'https://via.placeholder.com/24' , link:"/"},
     ];
 
+    const solutionsItems = [
+        { value: '1', label: 'solutions 1', image: '', link:"/" },
+        { value: '2', label: 'solutions 2', image: 'https://via.placeholder.com/24', link:"/" },
+        { value: '3', label: 'solutions 3', image: 'https://via.placeholder.com/24' , link:"/"},
+    ];
+
+    const pricingItems = [
+        { value: '1', label: 'pricing 1', image: '', link:"/" },
+        { value: '2', label: 'pricing 2', image: 'https://via.placeholder.com/24', link:"/" },
+        { value: '3', label: 'pricing 3', image: 'https://via.placeholder.com/24' , link:"/"},
+    ];
+
+    const enterpriseItems = [
+        { value: '1', label: 'enterprise 1', image: '', link:"/" },
+        { value: '2', label: 'enterprise 2', image: 'https://via.placeholder.com/24', link:"/" },
+        { value: '3', label: 'enterprise 3', image: 'https://via.placeholder.com/24' , link:"/"},
+    ];
     
     return (
         <div className='navbar'>
@@ -30,10 +49,10 @@ const Navbar = () => {
             <a href='#' className='logo' ><img src='https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc291f76b1f50c847e81bca18178a4646.cdn.bubble.io%2Ff1711051907000x393388361864458050%2FAds%25C4%25B1z%2520tasar%25C4%25B1m%2520%25285%2529.png?w=256&h=142&auto=compress&dpr=2&fit=max'></img></a>
             
             <div className='leftside-buttons'>
-            <Dropdown items={items} onSelect={handleSelect} selectedItem={selectedItem} title="Project" />
-            <Dropdown items={items} onSelect={handleSelect} selectedItem={selectedItem} title="Solutions" />
-            <Dropdown items={items} onSelect={handleSelect} selectedItem={selectedItem} title="Pricing" />
-            <Dropdown items={items} onSelect={handleSelect} selectedItem={selectedItem} title="Enterprise" />
+            <Dropdown items={projectItems} onSelect={handleSelect} selectedItem={selectedItem} title="Project" />
+            <Dropdown items={solutionsItems} onSelect={handleSelect} selectedItem={selectedItem} title="Solutions" />
+            <Dropdown items={pricingItems} onSelect={handleSelect} selectedItem={selectedItem} title="Pricing" />
+            <Dropdown items={enterpriseItems} onSelect={handleSelect} selectedItem={selectedItem} title="Enterprise" />
             </div>
             </div>
             <div className='navbar-rightside'>
@@ -49,8 +68,9 @@ const Navbar = () => {
             </div>
 
         
-        {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} signUp={()=>{setShowLoginModal(false); setShowSignUpModal(true); }} />}
-        {showSignUpModal && <SignUpModal onClose={() => setShowSignUpModal(false)}  login={()=>{setShowLoginModal(true); setShowSignUpModal(false); }}/>}
+        {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} signUp={()=>{setShowLoginModal(false); setShowSignUpModal(true); }} forgotPassword={()=>{setShowLoginModal(false); setShowForgotPasswordModal(true); }}/>}
+        {showSignUpModal && <SignUpModal onClose={() => setShowSignUpModal(false)}  login={()=>{setShowLoginModal(true); setShowSignUpModal(false); }} />}
+        {showSForgotPasswordModal && <ForgotPasswordModal onClose={() => setShowForgotPasswordModal(false)}/>}
     </div>
     );
 };

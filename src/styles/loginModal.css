@@ -267,3 +267,11 @@
     text-decoration: none;
     font-size: 14px;
 }
+
+.login-modal-message {
+    color: #ED1E5A; /* Hata mesajı rengi */
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}

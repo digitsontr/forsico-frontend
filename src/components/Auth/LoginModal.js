@@ -1,32 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCredentials } from '../../store/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import '../../styles/loginModal.css'
+import Authentication  from '../../api/AuthApi/authentication.js'
 
-const LoginModal = ({ onClose, signUp }) => {
+const LoginModal = ({ onClose, signUp, forgotPassword }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const authentication = new Authentication();
+    //const user = useSelector((state) => state.auth.token);
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
 
+    // useEffect(()=>{
+    //     console.log(user.token)
+    // },[])
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        const response = await fakeApiLogin({ email, password });
+        const response = await authentication.login(email, password);
+       
+        if (response.success) {
+            dispatch(setCredentials({
+                user: response.data.user,
+                token: response.data.token,
+            }));
 
-        dispatch(setCredentials({
-            user: response.user,
-            token: response.token,
-        }));
-
-        onClose();
-        navigate('/projects');
+            onClose();
+            navigate('/projects');
+        } else {
+            setErrorMessage(response.errors[0].errorMessage);
+        }
     };
 
     return (
@@ -89,7 +101,7 @@ const LoginModal = ({ onClose, signUp }) => {
                         <input type='checkbox' className='login-remember-check'></input>
                         <p className='login-remember-text'>Remember me</p>
                     </div>
-                    <a className='login-forgot-password' href='#'>Forgot password?</a>
+                    <a className='login-forgot-password' onClick={forgotPassword} >Forgot password?</a>
                 </div>
                 <div className='login-modal-action'>
                     <button type='button' className='login-submit-btn' onClick={handleLogin}>Login</button>
@@ -101,16 +113,4 @@ const LoginModal = ({ onClose, signUp }) => {
         </div>
     );
 };
-
-const fakeApiLogin = async ({ email, password }) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve({
-                user: { email },
-                token: 'fake-jwt-token',
-            });
-        }, 1000);
-    });
-};
-
 export default LoginModal;
