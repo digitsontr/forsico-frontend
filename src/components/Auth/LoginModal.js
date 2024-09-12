@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setCredentials } from '../../store/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+
 import '../../styles/loginModal.css'
 import Authentication  from '../../api/AuthApi/authentication.js'
 
@@ -14,15 +14,11 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const authentication = new Authentication();
-    //const user = useSelector((state) => state.auth.token);
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
 
-    // useEffect(()=>{
-    //     console.log(user.token)
-    // },[])
     const handleLogin = async (e) => {
         e.preventDefault();
 
@@ -38,6 +34,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
             navigate('/projects');
         } else {
             setErrorMessage(response.errors[0].errorMessage);
+            console.log(errorMessage)
         }
     };
 
@@ -54,7 +51,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                     </div>
                     <div className='login-modal-signup'>
                         <span>Don't have an account yet?</span>
-                        <a className='login-modal-signup-link' onClick={signUp}>Sign up</a>
+                        <a className='login-modal-signup-link' onClick={signUp} >Sign up</a>
                     </div>
                 </div>
                 <div className='login-modal-auth-options'>

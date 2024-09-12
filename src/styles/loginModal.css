@@ -160,6 +160,21 @@
     font-size: 14px;
 }
 
+.login-input-email.error input {
+    border-color: #FF005C;
+}
+
+.login-input-email.error .login-error-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.login-error-icon img {
+    width: 20px;
+    height: 20px;
+}
 
 .input-icon-left {
     position: absolute;
