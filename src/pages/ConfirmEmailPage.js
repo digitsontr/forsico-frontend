@@ -15,7 +15,7 @@ const ConfirmEmailPage = () => {
     useEffect(() => {
         const confirmEmail = async () => {
             try {
-                const response = await authentication.confirmEmail(token, email);
+                const response = await authentication.confirmEmail(token.replaceAll(" ","+"), email);
                 
                 if (response.status === true) {
                     setMessage("Email confirmation successful.");
