@@ -130,7 +130,7 @@ class Authentication{
         myHeaders.append("Content-Type", "application/json");
     
         const raw = JSON.stringify({
-          token: encodeURIComponent(token),
+          token: token,
           email: email
         });
     
