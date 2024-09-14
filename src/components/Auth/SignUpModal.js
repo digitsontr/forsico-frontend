@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../../styles/signUp.css';
 import Authentication from '../../api/AuthApi/authentication'
 
@@ -9,7 +9,9 @@ const SignUpModal = ({ onClose, login }) => {
     const [password, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');  
-    const authentication = new Authentication()
+    const authentication = new Authentication();
+    const modalRef = useRef(null); 
+
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
@@ -21,7 +23,7 @@ const SignUpModal = ({ onClose, login }) => {
         const lastName = nameParts.slice(1).join(' ');
     
         try {
-            const result = await authentication.register(userName,email,password,firstName,lastName);
+            const result = await authentication.register(userName, email, password, firstName, lastName);
     
             if (result.status === true) {
                 onClose();
@@ -33,9 +35,32 @@ const SignUpModal = ({ onClose, login }) => {
         }
     };
 
+    const handleClickOutside = (event) => {
+        if (modalRef.current && !modalRef.current.contains(event.target)) {
+            onClose();
+        }
+    };
+
+    const handleGoogleButtonClick = () => {
+        const url = config.baseUrl + "/api/Auth/Google"; 
+        window.open(url, "_blank"); 
+    };
+
+    const handleMicrosoftButtonClick = () => {
+        const url = config.baseUrl + "/api/Auth/Microsoft"; 
+        window.open(url, "_blank"); 
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <div className='signup-modal-container'>
-            <div className='signup-modal-card'>
+            <div className='signup-modal-card' ref={modalRef}>
                 <div className='signup-modal-close'>
                     <span><img className='signup-modal-close-icon' src='./cross-icon.svg' alt="Close" onClick={onClose}></img></span>
                 </div>
@@ -50,11 +75,11 @@ const SignUpModal = ({ onClose, login }) => {
                     </div>
                 </div>
                 <div className='signup-modal-auth-options'>
-                    <button className='signup-google-auth'>
+                    <button className='signup-google-auth' onClick={()=>handleGoogleButtonClick} >
                         <span><img className='signup-google-icon' src='./google.svg' alt="Google"></img></span>
                     </button>
                     <span style={{ width: '20px' }}></span>
-                    <button className='signup-microsoft-auth'>
+                    <button className='signup-microsoft-auth' onClick={()=>handleMicrosoftButtonClick}>
                         <span><img className='signup-microsoft-icon' src='./microsoft.svg' alt="Microsoft"></img></span>
                     </button>
                 </div>

@@ -93,6 +93,7 @@
     border: solid 1.5px #767676;
     border-radius: 15px;
     background-color: #FFF ;
+    cursor: pointer;
 }
 
 .signup-google-icon, .signup-microsoft-icon {

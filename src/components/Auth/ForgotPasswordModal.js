@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Authentication from '../../api/AuthApi/authentication';
 import '../../styles/loginModal.css';
 
@@ -6,6 +6,7 @@ const ForgotPasswordModal = ({ onClose }) => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState(''); 
     const authentication = new Authentication();
+    const modalRef = useRef(null); // Ref to track modal
 
     const handleForgotPassword = async (e) => {
         e.preventDefault();
@@ -23,9 +24,23 @@ const ForgotPasswordModal = ({ onClose }) => {
         }
     };
 
+    // Close modal on click outside
+    const handleClickOutside = (event) => {
+        if (modalRef.current && !modalRef.current.contains(event.target)) {
+            onClose();
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <div className='login-modal-container'>
-            <div className='login-modal-card'>
+            <div className='login-modal-card' ref={modalRef}>
                 <div className='login-modal-close'>
                     <span><img className='login-modal-close-icon' src='./cross-icon.svg' alt="Close" onClick={onClose}></img></span>
                 </div>
