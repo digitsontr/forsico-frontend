@@ -47,12 +47,12 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
     };
 
     const handleGoogleButtonClick = () => {
-        const url = config.baseUrl + "/api/Auth/Google";
+        const url = config.authProdUrl + "/api/Auth/Google";
         window.open(url, "_blank");
     };
 
     const handleMicrosoftButtonClick = () => {
-        const url = config.baseUrl + "/api/Auth/Microsoft";
+        const url = config.authProdUrl + "/api/Auth/Microsoft";
         window.open(url, "_blank");
     };
 
