@@ -56,9 +56,9 @@ const Navbar = () => {
             </div>
             </div>
             <div className='navbar-rightside'>
-                <div className='navbar-demo-button'>
+                {/* <div className='navbar-demo-button'>
                     <a>Request a demo</a>
-                </div>
+                </div> */}
                 <div className='rightside-button login'>
                     <Button Title="Login" onClick={()=>setShowLoginModal(true)} style={{backgroundColor:"#1C3C83" ,color:"#FFF", width:"100px" , height:"40px" , borderRadius:"20px" ,border:"2px solid #FFF" ,fontSize:"15px" }} />
                 </div>

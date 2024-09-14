@@ -93,6 +93,7 @@
     border: solid 1.5px #767676;
     border-radius: 15px;
     background-color: #FFF ;
+    cursor: pointer;
 }
 
 .login-google-icon, .login-microsoft-icon {
@@ -286,6 +287,12 @@
 .login-modal-message {
     color: #ED1E5A; /* Hata mesajı rengi */
     font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+.login-error-message {
+    color: #ED1E5A;
     font-size: 14px;
     margin-top: 10px;
     text-align: center;
