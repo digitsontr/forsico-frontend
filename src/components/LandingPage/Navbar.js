@@ -5,6 +5,8 @@ import ForgotPasswordModal from '../Auth/ForgotPasswordModal';
 import Button from "npm-forsico-ui/dist/Button"
 import Dropdown from "npm-forsico-ui/dist/Dropdown"
 import '../../styles/navbar.css';
+import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
     const [showLoginModal, setShowLoginModal] = useState(false);
@@ -46,7 +48,7 @@ const Navbar = () => {
         <div className='navbar'>
         <div className='navbar-leftside'>
             
-            <a href='#' className='logo' ><img src='https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fc291f76b1f50c847e81bca18178a4646.cdn.bubble.io%2Ff1711051907000x393388361864458050%2FAds%25C4%25B1z%2520tasar%25C4%25B1m%2520%25285%2529.png?w=256&h=142&auto=compress&dpr=2&fit=max'></img></a>
+            <a href='#' className='logo' ><img src='./forsico-logo-white.svg'></img></a>
             
             <div className='leftside-buttons'>
             <Dropdown items={projectItems} onSelect={handleSelect} selectedItem={selectedItem} title="Project" />
@@ -56,9 +58,7 @@ const Navbar = () => {
             </div>
             </div>
             <div className='navbar-rightside'>
-                {/* <div className='navbar-demo-button'>
-                    <a>Request a demo</a>
-                </div> */}
+                <Link className='go-profile' to="/profilepage">Profile</Link>
                 <div className='rightside-button login'>
                     <Button Title="Login" onClick={()=>setShowLoginModal(true)} style={{backgroundColor:"#1C3C83" ,color:"#FFF", width:"100px" , height:"40px" , borderRadius:"20px" ,border:"2px solid #FFF" ,fontSize:"15px" }} />
                 </div>

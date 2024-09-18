@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../styles/profilepage.css';
 
 const Profile = () => {
-    <Navbar />
     const [editProfile, setEditProfile] = useState(false);
     const [profile, setProfile] = useState({
         firstName: 'John',
