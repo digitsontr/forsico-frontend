@@ -1,0 +1,68 @@
+/* Container for the profile cards */
+.profilepage-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    height: 100vh;
+}
+
+/* Card style for each section */
+.profilepage-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.profilepage-card .profilepage-h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Profile image and information */
+.profilepage-info .profilepage-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.profilepage-info .profilepage-p {
+    margin: 0.5rem 0;
+}
+
+/* Input fields for profile and other forms */
+.profilepage-input {
+    width: 90%;
+    padding: 10px;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profilepage-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.profilepage-button:hover {
+    background-color: #0056b3;
+}
+
+/* Password change fields */
+.profilepage-password-change .profilepage-input {
+    margin-bottom: 1rem;
+}
+
+/* Email change field */
+.profilepage-email-change .profilepage-input {
+    margin-bottom: 1rem;
+}
