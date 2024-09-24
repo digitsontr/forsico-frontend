@@ -58,7 +58,10 @@ const Navbar = () => {
             </div>
             </div>
             <div className='navbar-rightside'>
+                <Link className='go-profile' to="/taskboard">TaskBoard</Link>
                 <Link className='go-profile' to="/profilepage">Profile</Link>
+                <Link className='go-profile' to="/taskboardhomepage">TaskBoardHomePage</Link>
+
                 <div className='rightside-button login'>
                     <Button Title="Login" onClick={()=>setShowLoginModal(true)} style={{backgroundColor:"#1C3C83" ,color:"#FFF", width:"100px" , height:"40px" , borderRadius:"20px" ,border:"2px solid #FFF" ,fontSize:"15px" }} />
                 </div>

@@ -1,0 +1,267 @@
+.app-container {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #f4f5f7;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  .sidebar h2 {
+    color: #0d6efd;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar nav ul li {
+    padding: 10px 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .sidebar nav ul li i {
+    margin-right: 10px;
+  }
+  
+  .workspaces {
+    margin-top: 40px;
+  }
+  
+  .workspaces h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .workspaces ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .workspaces ul li {
+    padding: 10px 0;
+    font-size: 16px;
+  }
+  
+  .task-board-container {
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .task-board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task-board-nav button {
+    margin-right: 10px;
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .task-board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .task-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s;
+  }
+  
+  .task-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .task-card.urgent {
+    border-left: 5px solid red;
+  }
+  
+  .task-card-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .task-date, .task-progress, .task-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .task-date i, .task-icons i {
+    margin-right: 5px;
+  }
+  
+  .add-task-btn {
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .task-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.2s;
+  }
+  
+  .task-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .task-card .task-card-h3{
+    font-size: 16px;
+    font-weight: 500;
+    color: #ACACAC;
+  }
+  
+  .task-card-info {
+    display: flex;
+    
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .task-date-progress {
+    display: flex;
+    align-items: center;
+  }
+  
+  .task-date, .task-progress {
+    background-color: #f1f4ff;
+    border-radius: 12px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #254d87;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .task-date i, .task-progress i {
+    margin-right: 5px;
+  }
+  
+  .task-meta {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  .task-meta span {
+    margin-left: 10px;
+    color: #254d87;
+  }
+  
+  .task-comments, .task-members {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .task-comments i, .task-members i {
+    margin-right: 5px;
+  }
+  
+  .task-actions {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+  
+  .task-actions i {
+    color: #00bfff;
+    font-size: 18px;
+  }
+
+  .task-card-upperside{
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .task-card-title{
+    width: 70%;
+  }
+
+  .task-card-lowerside{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+  }
+  
+  .task-card-date-icon{
+    margin-right: 10px;
+  }
+
+  .task-board-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .column {
+    font-size: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+    
+  .column .column-title {
+    padding: 10px;
+    color: white;
+    background-color: #36C5F0;
+    border-radius: 15px;
+    
+  }
+  
+  .task-list {
+    min-height: 100px;
+  }
+  
+  .task-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    padding: 20px;
+    transition: transform 0.2s;
+  }
+  
+  .task-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .urgent {
+    border-left: 5px solid red;
+  }

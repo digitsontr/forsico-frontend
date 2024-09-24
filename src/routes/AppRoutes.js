@@ -4,6 +4,9 @@ import LandingPage from '../pages/LandingPage';
 import ResetPasswordPage from '../pages/ResetPasswordPage';
 import ConfirmEmailPage from '../pages/ConfirmEmailPage';
 import ProfilePage from '../pages/ProfilePage'
+import TaskBoard from '../pages/TaskBoard';
+import TaskBoardHomePage from '../pages/TaskBoardHomePage';
+
 
 const AppRoutes = () => {
     return (
@@ -13,6 +16,9 @@ const AppRoutes = () => {
                 <Route path="/resetPassword" element={<ResetPasswordPage />} />
                 <Route path="/confirmEmail" element={<ConfirmEmailPage />} />
                 <Route path="/profilepage" element={<ProfilePage />} />
+                <Route path="/taskboard" element={<TaskBoard />} />
+                <Route path="/taskboardhomepage" element={<TaskBoardHomePage />} />
+
             </Routes>
         </Router>
     );
