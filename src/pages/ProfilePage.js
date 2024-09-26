@@ -1,14 +1,33 @@
 import React, { useState } from 'react';
 import '../styles/profilepage.css';
+import Authentication from '../api/AuthApi/authentication.js';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCredentials } from '../store/authSlice';
 
 const Profile = () => {
+    const dispatch = useDispatch();
+    const authentication = new Authentication();
+    const user = useSelector((state) => state.auth.user);
+    const token = useSelector((state) => state.auth.token);
+    const isThirdParty = useSelector((state) => state.auth.thirdParty);
+
     const [editProfile, setEditProfile] = useState(false);
+    const [email, setEmail] = useState(user?.email || '');
+    const [username, setUsername] = useState(user?.userName || '');
     const [profile, setProfile] = useState({
-        firstName: 'John',
-        lastName: 'Doe',
-        birthDate: '1990-01-01',
-        profileImage: './default-profile-image.jpg' // Default profile image
+        firstName: user?.firstName || '',
+        lastName: user?.lastName || '',
+        birthDate: user?.dateOfBirth || '',
+        profileImage: user?.profileImage || './default-profile-image.jpg'
     });
+
+    const [password, setPassword] = useState({
+        oldPassword: '',
+        newPassword: '',
+        confirmPassword: ''
+    });
+
+    const [editEmail, setEditEmail] = useState(false);
 
     const handleProfileEdit = () => {
         setEditProfile(!editProfile);
@@ -25,17 +44,6 @@ const Profile = () => {
         }
     };
 
-
-    const [password, setPassword] = useState({
-        oldPassword: '',
-        newPassword: '',
-        confirmPassword: ''
-    });
-
-    const [email, setEmail] = useState('john.doe@example.com');
-    const [editEmail, setEditEmail] = useState(false);
-
-
     const handlePasswordChange = (e) => {
         setPassword({ ...password, [e.target.name]: e.target.value });
     };
@@ -44,6 +52,62 @@ const Profile = () => {
         setEditEmail(!editEmail);
     };
 
+    const updateProfile = async () => {
+        try {
+            const response = await authentication.updateProfile(email, username, profile.firstName, profile.lastName, profile.birthDate, token.token);
+            if (response.success) {
+
+                dispatch(setCredentials({
+                    user: {
+                        email,
+                        username,
+                        firstName: profile.firstName,
+                        lastName: profile.lastName,
+                        birthDate: profile.birthDate,
+                        profileImage: profile.profileImage
+                    },
+                    token: token
+                }));
+                setEditProfile(false); 
+            } else {
+                console.error('Profile update failed', response.errors);
+            }
+        } catch (error) {
+            console.error('Error updating profile:', error);
+        }
+    };
+
+    const updatePassword = async () => {
+        if (password.newPassword !== password.confirmPassword) {
+            alert("New password and confirm password do not match!");
+            return;
+        }
+        try {
+            const response = await authentication.updatePassword(email, password.oldPassword, password.newPassword, token.token);
+            if (response.success) {
+                alert('Password updated successfully!');
+                setPassword({ oldPassword: '', newPassword: '', confirmPassword: '' });
+            } else {
+                console.error('Password update failed', response.errors);
+            }
+        } catch (error) {
+            console.error('Error updating password:', error);
+        }
+    };
+
+    const emailUpdate = async () => {
+        try {
+            const response = await authentication.initiateEmailUpdate(user.email, email, token.token);
+            if (response.success) {
+                alert('Email update initiated! Please check your new email for confirmation.');
+                setEditEmail(false); 
+            } else {
+                console.error('Email update failed', response.errors);
+            }
+        } catch (error) {
+            console.error('Error updating email:', error);
+        }
+    };
 
     return (
         <>
@@ -77,12 +141,12 @@ const Profile = () => {
                                     value={profile.birthDate}
                                     onChange={(e) => setProfile({ ...profile, birthDate: e.target.value })}
                                 />
-                                {/* Image input field */}
                                 <input
                                     className='profilepage-input'
                                     type="file"
                                     accept="image/*"
-                                    onChange={handleImageChange} />
+                                    onChange={handleImageChange}
+                                />
                             </div>
                         ) : (
                             <div>
@@ -91,12 +155,17 @@ const Profile = () => {
                                 <p className='profilepage-p'>Birth Date: {profile.birthDate}</p>
                             </div>
                         )}
-                        <button className='profilepage-button' onClick={handleProfileEdit}>{editProfile ? 'Save' : 'Edit Profile'}</button>
+                        <button className='profilepage-button' onClick={editProfile ? updateProfile : handleProfileEdit}>
+                            {editProfile ? 'Save' : 'Edit Profile'}
+                        </button>
                     </div>
                 </div>
-
-                {/* Change Password Card */}
-                <div className="profilepage-card">
+                { isThirdParty === true  ? (
+                    <div></div>
+                ):(
+                    <>
+                    {/* Change Password Card */}
+                    <div className="profilepage-card">
                     <h2>Change Password</h2>
                     <div className="profilepage-password-change">
                         <input
@@ -123,17 +192,17 @@ const Profile = () => {
                             value={password.confirmPassword}
                             onChange={handlePasswordChange}
                         />
-                        <button className='profilepage-button'>Confirm</button>
+                        <button className='profilepage-button' onClick={updatePassword}>Confirm</button>
                     </div>
-                </div>
+                    </div>
 
-                {/* Change Email Card */}
-                <div className="profilepage-card">
+                    {/* Change Email Card */}
+                    <div className="profilepage-card">
                     <h2>Change Email</h2>
                     {editEmail ? (
                         <div className="profilepage-email-change">
                             <input className='profilepage-input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                            <button className='profilepage-button' onClick={handleEmailChange}>Save Email</button>
+                            <button className='profilepage-button' onClick={emailUpdate}>Save Email</button>
                         </div>
                     ) : (
                         <div>
@@ -141,7 +210,10 @@ const Profile = () => {
                             <button className='profilepage-button' onClick={handleEmailChange}>Change Email</button>
                         </div>
                     )}
-                </div>
+                    </div>
+                    </>
+                )}
+              
             </div>
         </>
     );

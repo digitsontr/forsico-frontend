@@ -6,7 +6,8 @@ import ConfirmEmailPage from '../pages/ConfirmEmailPage';
 import ProfilePage from '../pages/ProfilePage'
 import TaskBoard from '../pages/TaskBoard';
 import TaskBoardHomePage from '../pages/TaskBoardHomePage';
-
+import ThirdPartyLogin from '../pages/ThirdPartyLogin'
+import ConfirmEmailUpdatePage from '../pages/ConfirmEmailUpdatePage';
 
 const AppRoutes = () => {
     return (
@@ -18,7 +19,9 @@ const AppRoutes = () => {
                 <Route path="/profilepage" element={<ProfilePage />} />
                 <Route path="/taskboard" element={<TaskBoard />} />
                 <Route path="/taskboardhomepage" element={<TaskBoardHomePage />} />
-
+                <Route path="/thirdpartylogin" element={<ThirdPartyLogin />} />
+                <Route path="/confirmchangeemail" element={<ConfirmEmailUpdatePage />} />
+                
             </Routes>
         </Router>
     );

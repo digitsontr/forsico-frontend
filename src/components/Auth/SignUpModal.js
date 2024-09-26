@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../../styles/signUp.css';
 import Authentication from '../../api/AuthApi/authentication'
+const config = require("../../config");
 
 const SignUpModal = ({ onClose, login }) => {
     const [email, setEmail] = useState('');
@@ -75,11 +76,11 @@ const SignUpModal = ({ onClose, login }) => {
                     </div>
                 </div>
                 <div className='signup-modal-auth-options'>
-                    <button className='signup-google-auth' onClick={()=>handleGoogleButtonClick} >
+                    <button className='signup-google-auth' onClick={handleGoogleButtonClick} >
                         <span><img className='signup-google-icon' src='./google.svg' alt="Google"></img></span>
                     </button>
                     <span style={{ width: '20px' }}></span>
-                    <button className='signup-microsoft-auth' onClick={()=>handleMicrosoftButtonClick}>
+                    <button className='signup-microsoft-auth' onClick={handleMicrosoftButtonClick}>
                         <span><img className='signup-microsoft-icon' src='./microsoft.svg' alt="Microsoft"></img></span>
                     </button>
                 </div>
