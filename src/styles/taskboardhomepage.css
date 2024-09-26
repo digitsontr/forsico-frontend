@@ -1,155 +1,205 @@
-.homepage-layout {
-    display: flex;
-  }
-  
-  .sidebar {
-    width: 250px;
-    background-color: #f4f5f7;
-    height: 100vh;
-    padding: 20px;
-  }
-  
-  .sidebar-top h2 {
-    color: #0d6efd;
-    margin-bottom: 20px;
-  }
-  
-  .sidebar nav ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar nav ul li {
-    padding: 15px 0;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .sidebar nav ul li i {
-    margin-right: 10px;
-  }
-  
-  .workspaces {
-    margin-top: 40px;
-  }
-  
-  .workspaces h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .workspaces ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .workspaces ul li {
-    padding: 10px 0;
-    font-size: 16px;
-  }
-  
-  .homepage-container {
-    padding: 20px;
-    width: 100%;
-  }
-  
-  .header-section {
+/* General layout */
+.taskboard-homepage-layout {
     display: flex;
     flex-direction: column;
-  }
-  
-  .header-section h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  
-  .stats-section {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .stat-box {
-    background-color: #ffffff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    flex: 1;
-  }
-  
-  .stat-box h2 {
-    font-size: 36px;
-    color: #0d6efd;
-  }
-  
-  .stat-box p {
-    font-size: 14px;
-    color: #6b6b6b;
-  }
-  
-  .stat-box .percentage {
-    color: red;
-  }
-  
-  .chart-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .workspace-section {
-    margin-top: 40px;
-  }
-  
-  .workspace-section h2 {
-    font-size: 24px;
+    background-color: #f4f7fa;
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Full-page height */
+    box-sizing: border-box;
+}
+
+/* Message */
+.meet-message {
+    font-size: 2rem;
+    font-weight: bold;
     margin-bottom: 20px;
-  }
-  
-  .workspace-group {
-    margin-bottom: 30px;
-  }
-  
-  .workspace-group h3 {
-    font-size: 20px;
-    color: #0d6efd;
-    margin-bottom: 10px;
-  }
-  
-  .workspace-cards {
+    color: #1C3C84;
+}
+
+
+.double-card {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     gap: 20px;
-  }
-  
-  .workspace-card {
-    background-color: #f4f5f7;
-    padding: 15px;
-    border-radius: 8px;
-    width: 200px;
+}
+
+.active-workspaces, .active-task {
+    height: 50%;
+    width: 45%;
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.active-workspaces .fs-96, .active-task .fs-96 {
+    font-size: 6rem;
+    color: #0070f3;
+}
+
+.percent-of-completed {
+    display: flex;
+    width: 90%;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.percent-of-completed div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.percent-of-completed span {
+    font-size: 1.2rem;
+}
+
+.percent-of-completed div:last-child {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff6961;
+}
+
+
+.general-info-middleside img {
+    width: 80%;
+    max-width: 300px;
+}
+
+.rightside-elements {
+    width: 90%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 100px; /* Smaller height to balance layout */
+}
+
+/* Workspaces section */
+.workspaces-info {
+    margin-top: 20px;
+}
+
+.workspace-general-info-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Individual workspaces */
+.workspace {
+    margin-bottom: 30px;
+}
+
+.workspace-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Workspace cards */
+.workspace-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.workspace-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px; /* Shorter card height to balance */
+}
+
+.workspace-card-upperside {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .workspace-card p {
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .workspace-members {
+}
+
+.workspace-card-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.workspace-card-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.workspace-card-middleside {
+    margin: 10px 0;
+}
+
+.workspace-card-lowerside {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-  }
-  
-  .workspace-members img {
-    width: 20px;
-    height: 20px;
+}
+
+.members-image {
+    display: flex;
+}
+
+.members-image img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
     margin-right: 5px;
-  }
-  
-  .edit-icon {
-    width: 16px;
-    cursor: pointer;
-  }
+}
+
+.total-members {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Workspace general info layout */
+.workspace-general-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem; /* 1rem gap between the divs */
+    width: 100%; /* Full width of the page */
+    box-sizing: border-box;
+}
+
+.general-info-leftside, .general-info-middleside, .general-info-rightside {
+    flex: 1; /* All three divs take equal space */
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Middle section graphic adjustments */
+.general-info-middleside img {
+    width: 80%;
+    max-width: 300px;
+}
+
+/* Additional styling for the elements within the divs (you can adjust further as needed) */
+.active-workspaces h2, .active-task h2, .percent-of-completed div:last-child {
+    font-size: 3rem; /* Make the numbers more prominent */
+}
+
+.percent-of-completed {
+    text-align: center;
+}
