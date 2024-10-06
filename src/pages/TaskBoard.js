@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import '../styles/taskboard.css'; // CSS dosyasını ayrı tutuyoruz
+import Sidebar from "./SideBar";
+import Navbar from "../components/LandingPage/Navbar"
 
 const initialColumns = {
   "UX-UI": {
     name: "UX-UI",
     items: [
       { id: "1", title: "Create design system for Forsico", date: "August 12", progress: 50, comments: 8, members: 4, urgent: false },
-      { id: "2", title: "Update documentation", date: "August 15", progress: 30, comments: 2, members: 3, urgent: false }
+      { id: "2", title: "Update documentation", date: "August 15", progress: 30, comments: 2, members: 3, urgent: true }
     ]
   },
   "Software": {
@@ -52,7 +54,10 @@ const TaskBoard = () => {
 
   return (
     <div className="app-container">
+      <Navbar />
+      <div className="sidebar-div">
       <Sidebar />
+      </div>
       <DragDropContext onDragEnd={result => onDragEnd(result, columns, setColumns)}>
         <div className="task-board-container">
           <div className="task-board-header">
@@ -141,30 +146,6 @@ const TaskCard = ({ task }) => {
         <div className="task-actions">
           <img src="./board-flag-icon.svg" alt="flag-icon" />
         </div>
-      </div>
-    </div>
-  );
-};
-
-const Sidebar = () => {
-  return (
-    <div className="sidebar">
-      <h2>Forsico</h2>
-      <nav>
-        <ul>
-          <li><i className="fas fa-home"></i> Home</li>
-          <li><i className="fas fa-tasks"></i> My tasks</li>
-          <li><i className="fas fa-folder"></i> My docs</li>
-          <li><i className="fas fa-brain"></i> Forsico AI</li>
-        </ul>
-      </nav>
-      <div className="workspaces">
-        <h3>Workspaces</h3>
-        <ul>
-          <li>Enefitimbu</li>
-          <li>Startup</li>
-          <li>Forsico</li>
-        </ul>
       </div>
     </div>
   );

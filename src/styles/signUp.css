@@ -227,3 +227,30 @@
 .signup-submit-btn:hover {
     background: #5ED0F3;
 }
+
+.login-input-email.error .signup-error-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.signup-error-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.signup-input-email.error, 
+.signup-input-password.error, 
+.signup-input-fullname.error {
+    border-color: #ED1E5A;
+}
+
+.signup-error-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}

@@ -9,33 +9,50 @@ const SignUpModal = ({ onClose, login }) => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');  
+    const [errorMessage, setErrorMessage] = useState('');
     const authentication = new Authentication();
-    const modalRef = useRef(null); 
+    const modalRef = useRef(null);
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
 
-    const handleRegister = async () => {
-        const nameParts = fullName.trim().split(' ');
-        
-        const firstName = nameParts[0]; 
-        const lastName = nameParts.slice(1).join(' ');
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    };
     
-        try {
-            const result = await authentication.register(userName, email, password, firstName, lastName);
-    
-            if (result.status === true) {
-                onClose();
-            } else {
-                setErrorMessage(result.errors[0].errorMessage);
-            }
-        } catch (error) {
-            setErrorMessage(error.message);
+    const validateForm = () => {
+        if (!userName || !fullName || !email || !password) {
+            setErrorMessage('Tüm alanları doldurun');
+            return false;
         }
+        if (!validateEmail(email)) {
+            setErrorMessage('Geçerli bir e-posta adresi girin');
+            return false;
+        }
+        return true;
     };
 
+    const handleRegister = async () => {
+    if (!validateForm()) return;
+
+    const nameParts = fullName.trim().split(' ');
+    const firstName = nameParts[0];
+    const lastName = nameParts.slice(1).join(' ');
+
+    try {
+        const result = await authentication.register(userName, email, password, firstName, lastName);
+
+        if (result.status === true) {
+            onClose();
+        } else {
+            setErrorMessage(result.errors[0].errorMessage);
+        }
+    } catch (error) {
+        setErrorMessage(error.message);
+    }
+};
     const handleClickOutside = (event) => {
         if (modalRef.current && !modalRef.current.contains(event.target)) {
             onClose();
@@ -43,13 +60,13 @@ const SignUpModal = ({ onClose, login }) => {
     };
 
     const handleGoogleButtonClick = () => {
-        const url = config.authProdUrl + "/api/Auth/Google"; 
-        window.open(url, "_blank"); 
+        const url = config.authProdUrl + "/api/Auth/Google";
+        window.open(url, "_blank");
     };
 
     const handleMicrosoftButtonClick = () => {
-        const url = config.authProdUrl + "/api/Auth/Microsoft"; 
-        window.open(url, "_blank"); 
+        const url = config.authProdUrl + "/api/Auth/Microsoft";
+        window.open(url, "_blank");
     };
 
     useEffect(() => {
@@ -87,13 +104,13 @@ const SignUpModal = ({ onClose, login }) => {
                 <div className='signup-modal-separator'>
                     <span>or</span>
                 </div>
-                <div className='signup-modal-input'>
-                    <div className='input-icon-wrapper'>
+                <div className={`signup-modal-input ${!userName && errorMessage ? 'error' : ''}`}>
+                    <div className="input-icon-wrapper">
                         <img src='./fullNameInput.svg' className='input-icon' alt='Full Name Icon' />
                         <input
-                            className='signup-input-fullname'
+                            className={`signup-input-fullname ${!userName && errorMessage ? 'error' : ''}`}
                             type='text'
-                            name='username'
+                            name='fullname'
                             value={userName}
                             onChange={(e) => setUserName(e.target.value)}
                             required
@@ -101,6 +118,7 @@ const SignUpModal = ({ onClose, login }) => {
                         />
                     </div>
                 </div>
+
                 <div className='signup-modal-input'>
                     <div className='input-icon-wrapper'>
                         <img src='./fullNameInput.svg' className='input-icon' alt='Full Name Icon' />
@@ -115,11 +133,11 @@ const SignUpModal = ({ onClose, login }) => {
                         />
                     </div>
                 </div>
-                <div className='signup-modal-input'>
-                    <div className='input-icon-wrapper'>
+                <div className={`signup-modal-input ${!validateEmail(email) && email !== '' ? 'error' : ''}`}>
+                    <div className="input-icon-wrapper">
                         <img src='./emailInput.svg' className='input-icon' alt='Email Icon' />
                         <input
-                            className='signup-input-email'
+                            className={`signup-input-email ${!validateEmail(email) && email !== '' ? 'error' : ''}`}
                             type='email'
                             name='email'
                             value={email}
@@ -127,14 +145,19 @@ const SignUpModal = ({ onClose, login }) => {
                             required
                             placeholder='Work e-mail address'
                         />
+                        {!validateEmail(email) && email !== '' && (
+                            <span className="signup-error-icon">
+                                <img src="./input-error-icon.svg" alt="Error" />
+                            </span>
+                        )}
                     </div>
                 </div>
-                <div className='signup-modal-input'>
-                    <div className='input-icon-wrapper'>
+                <div className={`signup-modal-input ${!password && errorMessage ? 'error' : ''}`}>
+                    <div className="input-icon-wrapper">
                         <img src='./passwordInput.svg' className='input-icon-left' alt='Password Icon' />
                         <input
                             id='password-input'
-                            className='signup-input-password'
+                            className={`signup-input-password ${!password && errorMessage ? 'error' : ''}`}
                             type={passwordVisible ? 'text' : 'password'}
                             name='password'
                             value={password}

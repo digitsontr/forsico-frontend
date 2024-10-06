@@ -3,6 +3,8 @@ import '../styles/profilepage.css';
 import Authentication from '../api/AuthApi/authentication.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCredentials } from '../store/authSlice';
+import Navbar from '../components/LandingPage/Navbar';
+
 
 const Profile = () => {
     const dispatch = useDispatch();
@@ -68,7 +70,7 @@ const Profile = () => {
                     },
                     token: token
                 }));
-                setEditProfile(false); 
+                setEditProfile(false);
             } else {
                 console.error('Profile update failed', response.errors);
             }
@@ -100,7 +102,7 @@ const Profile = () => {
             const response = await authentication.initiateEmailUpdate(user.email, email, token.token);
             if (response.success) {
                 alert('Email update initiated! Please check your new email for confirmation.');
-                setEditEmail(false); 
+                setEditEmail(false);
             } else {
                 console.error('Email update failed', response.errors);
             }
@@ -111,6 +113,7 @@ const Profile = () => {
 
     return (
         <>
+        <Navbar/>
             <div className="profilepage-container">
                 {/* Profile Card */}
                 <div className="profilepage-card">
@@ -160,60 +163,60 @@ const Profile = () => {
                         </button>
                     </div>
                 </div>
-                { isThirdParty === true  ? (
+                {isThirdParty === true ? (
                     <div></div>
-                ):(
+                ) : (
                     <>
-                    {/* Change Password Card */}
-                    <div className="profilepage-card">
-                    <h2>Change Password</h2>
-                    <div className="profilepage-password-change">
-                        <input
-                            className='profilepage-input'
-                            type="password"
-                            placeholder="Old Password"
-                            name="oldPassword"
-                            value={password.oldPassword}
-                            onChange={handlePasswordChange}
-                        />
-                        <input
-                            className='profilepage-input'
-                            type="password"
-                            placeholder="New Password"
-                            name="newPassword"
-                            value={password.newPassword}
-                            onChange={handlePasswordChange}
-                        />
-                        <input
-                            className='profilepage-input'
-                            type="password"
-                            placeholder="Confirm New Password"
-                            name="confirmPassword"
-                            value={password.confirmPassword}
-                            onChange={handlePasswordChange}
-                        />
-                        <button className='profilepage-button' onClick={updatePassword}>Confirm</button>
-                    </div>
-                    </div>
+                        {/* Change Password Card */}
+                        <div className="profilepage-card">
+                            <h2>Change Password</h2>
+                            <div className="profilepage-password-change">
+                                <input
+                                    className='profilepage-input'
+                                    type="password"
+                                    placeholder="Old Password"
+                                    name="oldPassword"
+                                    value={password.oldPassword}
+                                    onChange={handlePasswordChange}
+                                />
+                                <input
+                                    className='profilepage-input'
+                                    type="password"
+                                    placeholder="New Password"
+                                    name="newPassword"
+                                    value={password.newPassword}
+                                    onChange={handlePasswordChange}
+                                />
+                                <input
+                                    className='profilepage-input'
+                                    type="password"
+                                    placeholder="Confirm New Password"
+                                    name="confirmPassword"
+                                    value={password.confirmPassword}
+                                    onChange={handlePasswordChange}
+                                />
+                                <button className='profilepage-button' onClick={updatePassword}>Confirm</button>
+                            </div>
+                        </div>
 
-                    {/* Change Email Card */}
-                    <div className="profilepage-card">
-                    <h2>Change Email</h2>
-                    {editEmail ? (
-                        <div className="profilepage-email-change">
-                            <input className='profilepage-input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                            <button className='profilepage-button' onClick={emailUpdate}>Save Email</button>
+                        {/* Change Email Card */}
+                        <div className="profilepage-card">
+                            <h2>Change Email</h2>
+                            {editEmail ? (
+                                <div className="profilepage-email-change">
+                                    <input className='profilepage-input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <button className='profilepage-button' onClick={emailUpdate}>Save Email</button>
+                                </div>
+                            ) : (
+                                <div>
+                                    <p className='profilepage-p'>{email}</p>
+                                    <button className='profilepage-button' onClick={handleEmailChange}>Change Email</button>
+                                </div>
+                            )}
                         </div>
-                    ) : (
-                        <div>
-                            <p className='profilepage-p'>{email}</p>
-                            <button className='profilepage-button' onClick={handleEmailChange}>Change Email</button>
-                        </div>
-                    )}
-                    </div>
                     </>
                 )}
-              
+
             </div>
         </>
     );

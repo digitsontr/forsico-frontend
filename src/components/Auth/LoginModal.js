@@ -20,8 +20,18 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
         setPasswordVisible(!passwordVisible);
     };
 
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    };
+
     const handleLogin = async (e) => {
         e.preventDefault();
+
+        if (!validateEmail(email)) {
+            setErrorMessage('Lütfen geçerli bir e-posta adresi girin');
+            return;
+        }
 
         const response = await authentication.login(email, password);
 
@@ -36,7 +46,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
             onClose();
             navigate('/projects');
         } else {
-            setErrorMessage(response.errors[0].errorMessage); 
+            setErrorMessage(response.errors[0].errorMessage);
         }
     };
 
@@ -62,6 +72,8 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+
+    
 
     return (
         <div className='login-modal-container'>
@@ -112,22 +124,27 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                 <div className='login-modal-separator'>
                     <span>or</span>
                 </div>
-                <div className='login-modal-input'>
-                    <div className='input-icon-wrapper'>
+                <div className={`login-modal-input ${!validateEmail(email) && email !== '' ? 'error' : ''}`}>
+                    <div className="input-icon-wrapper">
                         <img
-                            src='./emailInput.svg'
-                            className='input-icon'
-                            alt='Icon'
+                            src="./emailInput.svg"
+                            className="input-icon"
+                            alt="Icon"
                         />
                         <input
-                            className='login-input-email'
-                            type='email'
-                            name='email'
+                            className={`login-input-email ${!validateEmail(email) && email !== '' ? 'error' : ''}`}
+                            type="email"
+                            name="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            placeholder='Work e-mail address'
+                            placeholder="E-posta adresiniz"
                         />
+                        {!validateEmail(email) && email !== '' && (
+                            <span className="login-error-icon">
+                                <img src="./input-error-icon.svg" alt="Error" />
+                            </span>
+                        )}
                     </div>
                 </div>
                 <div className='login-modal-input'>
