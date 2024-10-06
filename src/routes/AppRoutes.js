@@ -8,6 +8,7 @@ import TaskBoard from '../pages/TaskBoard';
 import TaskBoardHomePage from '../pages/TaskBoardHomePage';
 import ThirdPartyLogin from '../pages/ThirdPartyLogin'
 import ConfirmEmailUpdatePage from '../pages/ConfirmEmailUpdatePage';
+import WorkspaceAI from '../pages/WorkspacePages/WorkspaceAI'
 
 const AppRoutes = () => {
     return (
@@ -21,7 +22,7 @@ const AppRoutes = () => {
                 <Route path="/taskboardhomepage" element={<TaskBoardHomePage />} />
                 <Route path="/thirdpartylogin" element={<ThirdPartyLogin />} />
                 <Route path="/confirmchangeemail" element={<ConfirmEmailUpdatePage />} />
-                
+                <Route path="/workspaceAi" element={<WorkspaceAI />} />
             </Routes>
         </Router>
     );

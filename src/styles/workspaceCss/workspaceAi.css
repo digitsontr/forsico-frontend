@@ -1,0 +1,43 @@
+.workspaceAi-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+.workspaceAi-top{
+    display: flex;
+    flex-direction: column;
+    width: 1165px;
+    height: 76px;
+    gap: 10px;
+}
+.workspaceAi-title-div{
+    display: flex;
+    width: 1165px; 
+    height: auto; 
+    min-height: 48px; 
+    gap: 0px; 
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.workspaceAi-title {
+    display: flex;
+    width: 313px;
+    height: 48px;
+    gap: 0px;
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48.41px;
+    text-align: left;
+    border: none; 
+    background: transparent; 
+    outline: none; 
+    padding: 0; 
+    cursor: text; 
+    color: #1C3C84;
+}
+
