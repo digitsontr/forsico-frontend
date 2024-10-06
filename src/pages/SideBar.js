@@ -47,7 +47,7 @@ const Sidebar = () => {
 
       <div className="sidebar-workspaces">
         <span className="add-workspace">WORKSPACES</span>
-        <a href="#"><img
+        <a href="/workspaceAi"><img
           className="sidebar-home-icon"
           src="./sidebar-plus-icon.svg"
           alt="plus"
