@@ -9,6 +9,7 @@ import TaskBoardHomePage from '../pages/TaskBoardHomePage';
 import ThirdPartyLogin from '../pages/ThirdPartyLogin'
 import ConfirmEmailUpdatePage from '../pages/ConfirmEmailUpdatePage';
 import WorkspaceAI from '../pages/WorkspacePages/WorkspaceAI'
+import TrelloPage from '../pages/TrelloPage';
 
 const AppRoutes = () => {
     return (
@@ -23,6 +24,7 @@ const AppRoutes = () => {
                 <Route path="/thirdpartylogin" element={<ThirdPartyLogin />} />
                 <Route path="/confirmchangeemail" element={<ConfirmEmailUpdatePage />} />
                 <Route path="/workspaceAi" element={<WorkspaceAI />} />
+                <Route path="/trellopage" element={<TrelloPage />} />
             </Routes>
         </Router>
     );
