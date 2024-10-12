@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import crossIcon from "../icon-cross.svg";
+import authSlice from "../../store/authSlice";
 import "../css/addEditTaskModal.css";
 import rightButton from '../dark-right-button.svg';
 import close from '../close.svg';
-// import boardsSlice from "../redux/boardsSlice";
 
 function AddEditTaskModal({
   type,
@@ -50,9 +50,13 @@ function AddEditTaskModal({
 
   const validate = () => {
     setIsValid(false);
-    if (!title.trim()) return false;
+    if (!title.trim()) {
+      return false;
+    }
     for (let i = 0; i < subtasks.length; i++) {
-      if (!subtasks[i].title.trim()) return false;
+      if (!subtasks[i].title.trim()) {
+        return false;
+      }
     }
     setIsValid(true);
     return true;
@@ -60,10 +64,9 @@ function AddEditTaskModal({
 
   if (type === "edit" && isFirstLoad) {
     setSubtasks(
-      task.subtasks.map((subtask) => ({
-        ...subtask,
-        id: uuidv4(),
-      }))
+      task.subtasks.map((subtask) => {
+        return { ...subtask, id: uuidv4() };
+      })
     );
     setTitle(task.title);
     setDescription(task.description);
@@ -73,38 +76,40 @@ function AddEditTaskModal({
   const onDelete = (id) => {
     setSubtasks((prevState) => prevState.filter((el) => el.id !== id));
   };
-
-//   const onSubmit = (type) => {
-//     if (type === "add") {
-//       dispatch(
-//         boardsSlice.actions.addTask({
-//           title,
-//           description,
-//           subtasks,
-//           status,
-//           newColIndex,
-//         })
-//       );
-//     } else {
-//       dispatch(
-//         boardsSlice.actions.editTask({
-//           title,
-//           description,
-//           subtasks,
-//           status,
-//           taskIndex,
-//           prevColIndex,
-//           newColIndex,
-//         })
-//       );
-//     }
-//   };
+ 
+  const onSubmit = (type) => {
+    if (type === "add") {
+      dispatch(
+        authSlice.actions.addTask({
+          title,
+          description,
+          subtasks,
+          status,
+          newColIndex,
+        })
+      );
+    } else {
+      dispatch(
+        authSlice.actions.editTask({
+          title,
+          description,
+          subtasks,
+          status,
+          taskIndex,
+          prevColIndex,
+          newColIndex,
+        })
+      );
+    }
+  };
 
   return (
     <div
       className="modal-overlay"
       onClick={(e) => {
-        if (e.target !== e.currentTarget) return;
+        if (e.target !== e.currentTarget) {
+          return;
+        }
         setIsAddTaskModalOpen(false);
       }}
     >
@@ -117,14 +122,16 @@ function AddEditTaskModal({
               alt="Right Button"
               className="right-button"
               onClick={() => {
-                // Right button actions
+                // Sağdaki butona tıklandığında yapılacak işlemler
               }}
             />
             <img
               src={close}
               alt="Close Button"
               className="close-button"
-              onClick={() => setIsAddTaskModalOpen(false)}
+              onClick={() => {
+                setIsAddTaskModalOpen(false);
+              }}
             />
           </div>
         </div>
@@ -137,21 +144,37 @@ function AddEditTaskModal({
             onChange={(e) => setTitle(e.target.value)}
             type="text"
             className="input-field"
-            placeholder="Task Title"
+            placeholder="Create Design Forsico"
           />
         </div>
 
-        <div className="form-group">
-          <input
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="input-field-2"
-            placeholder="Task Description"
-          />
-        </div>
 
         <div className="form-group">
+          <div className="text-area-container">
+            <input
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="input-field-2"
+              placeholder="Comment"
+            />
+          </div>
+        </div>
+
+
+        <div className="new-area">
+          {/* Buraya istediğiniz içeriği ekleyebilirsiniz */}
+        </div>
+
+        <div className="right-area">
+        </div>
+
+        <div className="bottom-left-area">
+          {/* Buraya içerik ekleyebilirsiniz */}
+        </div>
+
+
+        {/* <div className="form-group">
           {subtasks.map((subtask, index) => (
             <div key={index} className="subtask-container">
               <input
@@ -159,32 +182,31 @@ function AddEditTaskModal({
                 type="text"
                 value={subtask.title}
                 className="input-field"
-                placeholder="Subtask"
+                placeholder="e.g. Take coffee break"
               />
               <img
                 src={crossIcon}
                 onClick={() => onDelete(subtask.id)}
                 className="close-icon"
-                alt="delete"
               />
             </div>
           ))}
+
           <button
             className="add-subtask-btn"
-            onClick={() =>
-              setSubtasks([
-                ...subtasks,
-                { title: "", isCompleted: false, id: uuidv4() },
-              ])
-            }
+            onClick={() => setSubtasks([...subtasks, { title: "", isCompleted: false, id: uuidv4() }])}
           >
             + Add New Subtask
           </button>
-        </div>
+        </div> */}
 
-        <div className="form-group">
+        {/* <div className=" form-group">
           <label>Current Status</label>
-          <select value={status} onChange={onChangeStatus} className="select-field">
+          <select
+            value={status}
+            onChange={onChangeStatus}
+            className="select-field"
+          >
             {columns.map((column, index) => (
               <option key={index}>{column.name}</option>
             ))}
@@ -192,7 +214,8 @@ function AddEditTaskModal({
 
           <button
             onClick={() => {
-              if (validate()) {
+              const isValid = validate();
+              if (isValid) {
                 onSubmit(type);
                 setIsAddTaskModalOpen(false);
                 if (type === "edit") setIsTaskModalOpen(false);
@@ -202,9 +225,11 @@ function AddEditTaskModal({
           >
             {type === "edit" ? "Save Edit" : "Create Task"}
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
+
+
   );
 }
 

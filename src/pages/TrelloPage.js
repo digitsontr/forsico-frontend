@@ -10,12 +10,18 @@ import miniCalendar from '../muhammed-added/mini-calendar.svg';
 import fork from '../muhammed-added/fork-blue.svg';
 import people from '../muhammed-added/people-blue.svg';
 import flag from '../muhammed-added/flag.svg';
-
+console.log()
 function TrelloPage({ colIndex, taskIndex, color }) {
-  const boards = useSelector((state) => state.boards);
-  const board = boards.find((board) => board.isActive === true);
+  console.log("colIndex", colIndex);
+  console.log("taskIndex", taskIndex);
+  console.log("color", color);
+  const boards = useSelector((state) => state.auth.boards);
+  console.log("boards", boards);
+  const board = boards.find((board) => board.isActive === false);
   const columns = board.columns;
+  console.log("columns", columns);
   const col = columns.find((col, i) => i === colIndex);
+  console.log("col", col);
   const task = col.tasks.find((task, i) => i === taskIndex);
   const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
 
