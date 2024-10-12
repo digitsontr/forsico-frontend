@@ -6,6 +6,7 @@ import authSlice from "../../store/authSlice";
 import Subtask from "../components/Subtask";
 import AddEditTaskModal from "./AddEditTaskModal";
 import DeleteModal from "./DeleteModal";
+import "../css/TaskModal.css";
 
 function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
   const dispatch = useDispatch();
@@ -77,23 +78,16 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
   };
 
   return (
-    <div
-      onClick={onClose}
-      className="fixed right-0 top-0 px-2 py-4 overflow-scroll scrollbar-hide z-50 left-0 bottom-0 justify-center items-center flex dropdown"
-    >
-      {/* MODAL SECTION */}
-
-      <div className="scrollbar-hide overflow-y-scroll max-h-[95vh] my-auto bg-white dark:bg-[#2b2c37] text-black dark:text-white font-bold shadow-md shadow-[#364e7e1a] max-w-md mx-auto w-full px-8 py-8 rounded-xl">
-        <div className="relative flex justify-between w-full items-center">
-          <h1 className="text-lg">{task.title}</h1>
+    <div onClick={onClose} className="modal-wrapper">
+      <div className={`modal-content-trello ${isDeleteModalOpen ? "dark-mode" : ""}`}>
+        <div className="modal-header">
+          <h1>{task.title}</h1>
 
           <img
-            onClick={() => {
-              setIsElipsisMenuOpen((prevState) => !prevState);
-            }}
+            onClick={() => setIsElipsisMenuOpen((prevState) => !prevState)}
             src={elipsis}
             alt="elipsis"
-            className="cursor-pointer h-6"
+            className="elipsis-icon"
           />
           {isElipsisMenuOpen && (
             <ElipsisMenu
@@ -103,17 +97,13 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
             />
           )}
         </div>
-        <p className="text-gray-500 font-[600] tracking-wide text-xs pt-6">
-          {task.description}
-        </p>
+        <p className="modal-description">{task.description}</p>
 
-        <p className="pt-6 text-gray-500 tracking-widest text-sm">
+        <p className="subtasks-info">
           Subtasks ({completed} of {subtasks.length})
         </p>
 
-        {/* subtasks section */}
-
-        <div className="mt-3 space-y-2">
+        <div className="subtasks-wrapper">
           {subtasks.map((subtask, index) => (
             <Subtask
               index={index}
@@ -124,14 +114,10 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
           ))}
         </div>
 
-        {/* Current Status Section */}
-
-        <div className="mt-8 flex flex-col space-y-3">
-          <label className="text-sm dark:text-white text-gray-500">
-            Current Status
-          </label>
+        <div className="status-section">
+          <label className="status-label">Current Status</label>
           <select
-            className="select-status flex-grow px-4 py-2 rounded-md text-sm bg-transparent focus:border-0 border-[1px] border-gray-300 focus:outline-[#635fc7] outline-none"
+            className="select-status"
             value={status}
             onChange={onChange}
           >
@@ -143,6 +129,7 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
           </select>
         </div>
       </div>
+
       {isDeleteModalOpen && (
         <DeleteModal
           onDeleteBtnClick={onDeleteBtnClick}

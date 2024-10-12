@@ -1,0 +1,71 @@
+/* styles.css */
+.modal-container-trello {
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    z-index: 50;
+    overflow: scroll;
+}
+
+.modal-trello {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(54, 78, 126, 0.1);
+    max-width: 400px;
+    width: 100%;
+    padding: 32px;
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: 95vh;
+}
+
+.modal-trello h3 {
+    color: red;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-trello p {
+    color: #6B7280; /* Gray-500 */
+    font-weight: 600;
+    font-size: 0.875rem; /* Text-xs */
+    padding-top: 16px;
+}
+
+.modal-buttons-trello {
+    display: flex;
+    width: 100%;
+    margin-top: 16px;
+    justify-content: center;
+    gap: 16px; /* Space between buttons */
+}
+
+.button-delete-trello {
+    width: 100%;
+    color: white;
+    background-color: #EF4444; /* Red-500 */
+    padding: 8px;
+    border-radius: 9999px; /* Rounded-full */
+    cursor: pointer;
+}
+
+.button-cancel-trello {
+    width: 100%;
+    color: #4F46E5; /* Indigo-700 */
+    background-color: rgba(99, 100, 199, 0.1); /* #635fc71a */
+    padding: 8px;
+    border-radius: 9999px; /* Rounded-full */
+    cursor: pointer;
+}
+
+.button-delete-trello:hover,
+.button-cancel-trello:hover {
+    opacity: 0.75; /* Hover effect */
+}

@@ -1,0 +1,91 @@
+.modal-wrapper {
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    overflow-y: auto;
+    z-index: 50;
+  }
+  
+  .modal-content-trello {
+    max-height: 95vh;
+    margin: auto;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(54, 78, 126, 0.1);
+    max-width: 640px;
+    width: 100%;
+    padding: 32px;
+    border-radius: 16px;
+  }
+  
+  .modal-content.dark-mode {
+    background-color: #2b2c37;
+    color: white;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .modal-header h1 {
+    font-size: 1.125rem;
+  }
+  
+  .elipsis-icon {
+    cursor: pointer;
+    height: 24px;
+  }
+  
+  .modal-description {
+    color: #6b7280;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    font-size: 0.75rem;
+    padding-top: 24px;
+  }
+  
+  .subtasks-info {
+    padding-top: 24px;
+    color: #6b7280;
+    letter-spacing: 0.1rem;
+    font-size: 0.875rem;
+  }
+  
+  .subtasks-wrapper {
+    margin-top: 12px;
+    space-y: 8px;
+  }
+  
+  .select-status {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 1px solid #d1d5db;
+    outline: none;
+    font-size: 0.875rem;
+    width: 100%;
+  }
+  
+  .select-status:focus {
+    border-color: #635fc7;
+  }
+  
+  .status-options {
+    font-size: 0.875rem;
+  }
+  
+  .delete-modal,
+  .add-edit-task-modal {
+    /* Add any modal-specific styling here */
+  }
+  

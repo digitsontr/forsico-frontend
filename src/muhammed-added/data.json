@@ -2,7 +2,7 @@
     "boards": [
       {
         "name": "E-Ticaret Platformu",
-        "isActive": false,
+        "isActive": true,
         "columns": [
           {
             "name": "To-do",
@@ -64,7 +64,7 @@
       },
       {
         "name": "Pazarlama Stratejisi",
-        "isActive": false,
+        "isActive": true,
         "columns": [
           {
             "name": "Yapılacaklar",
@@ -98,7 +98,7 @@
       },
       {
         "name": "Gelecek Planı",
-        "isActive": false,
+        "isActive": true,
         "columns": [
           {
             "name": "Şimdi",

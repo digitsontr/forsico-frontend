@@ -1,16 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import authSlice from "../../store/authSlice";
+import "../css/Subtask.css";
 
 function Subtask({ index, taskIndex, colIndex }) {
   const dispatch = useDispatch();
-  const boards = useSelector((state) => state.auth.boards); // auth.slice'dan boards'ı al
+  const boards = useSelector((state) => state.auth.boards); // Get boards from auth.slice
   const board = boards.find((board) => board.isActive === true);
   const col = board ? board.columns[colIndex] : null;
   const task = col ? col.tasks[taskIndex] : null;
   const subtask = task ? task.subtasks[index] : null;
-  
-  if (!subtask) return null; // Eğer alt görev yoksa hiçbir şey render etmeyin.
+
+  if (!subtask) return null; // Render nothing if there is no subtask
 
   const checked = subtask.isCompleted;
 
@@ -21,14 +22,14 @@ function Subtask({ index, taskIndex, colIndex }) {
   };
 
   return (
-    <div className="w-full flex hover:bg-[#635fc740] dark:hover:bg-[#635fc740] rounded-md relative items-center justify-start dark:bg-[#20212c] p-3 gap-4 bg-[#f4f7fd]">
+    <div className={`subtask-container ${checked ? 'completed' : ''}`}>
       <input
-        className="w-4 h-4 accent-[#635fc7] cursor-pointer"
+        className="subtask-checkbox"
         type="checkbox"
         checked={checked}
         onChange={onChange}
       />
-      <p className={checked ? "line-through opacity-30" : ""}>
+      <p className={`subtask-title ${checked ? 'completed' : ''}`}>
         {subtask.title}
       </p>
     </div>

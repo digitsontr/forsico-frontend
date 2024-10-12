@@ -20,7 +20,7 @@ function AddEditTaskModal({
   const [isValid, setIsValid] = useState(true);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const board = useSelector((state) => state.boards).find(
+  const board = useSelector((state) => state.auth.boards).find(
     (board) => board.isActive
   );
 
@@ -113,7 +113,7 @@ function AddEditTaskModal({
         setIsAddTaskModalOpen(false);
       }}
     >
-      <div className="modal-content">
+      <div className="modal-content-trello">
         <div className="modal-header">
           <h3>{type === "edit" ? "Edit" : "Add New"} Task</h3>
           <div className="modal-buttons">
