@@ -19,7 +19,7 @@ const AppRoutes = () => {
                 <Route path="/resetPassword" element={<ResetPasswordPage />} />
                 <Route path="/confirmEmail" element={<ConfirmEmailPage />} />
                 <Route path="/profilepage" element={<ProfilePage />} />
-                <Route path="/taskboard" element={<TaskBoard />} />
+                <Route path="/taskboard" element={<TrelloMainPage />} />
                 <Route path="/taskboardhomepage" element={<TaskBoardHomePage />} />
                 <Route path="/thirdpartylogin" element={<ThirdPartyLogin />} />
                 <Route path="/confirmchangeemail" element={<ConfirmEmailUpdatePage />} />
