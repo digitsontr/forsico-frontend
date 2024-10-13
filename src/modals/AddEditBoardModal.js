@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import crossIcon from "../icon-cross.svg";
-import authSlice from "../../store/authSlice";
+import crossIcon from "../assets/icon-cross.svg";
+import authSlice from "../store/authSlice";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
-import "../css/AddEditBoardModal.css";
+import "../styles/AddEditBoardModal.css";
 
 
 function AddEditBoardModal({ setIsBoardModalOpen, type }) {

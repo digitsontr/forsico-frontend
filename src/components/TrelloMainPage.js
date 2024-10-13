@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./Header";
-import Home from ".//Home";
+import Home from "./Home";
 import EmptyBoard from "./EmptyBoard";
-import authSlice from "../../store/authSlice";
-import "../css/TrelloMainPage.css";
+import authSlice from "../store/authSlice";
+import "../styles/TrelloMainPage.css";
 
 function TrelloMainPage() {
   const [isBoardModalOpen, setIsBoardModalOpen] = useState(false);

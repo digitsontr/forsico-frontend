@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ElipsisMenu from "../components/ElipsisMenu";
-import elipsis from "../icon-vertical-ellipsis.svg";
-import authSlice from "../../store/authSlice";
+import elipsis from "../assets/icon-vertical-ellipsis.svg";
+import authSlice from "../store/authSlice";
 import Subtask from "../components/Subtask";
 import AddEditTaskModal from "./AddEditTaskModal";
 import DeleteModal from "./DeleteModal";
-import "../css/TaskModal.css";
+import "../styles/TaskModal.css";
+import { setTaskStatus } from '../store/authSlice';
+
 
 function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
   const dispatch = useDispatch();
@@ -45,7 +47,7 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
       return;
     }
     dispatch(
-      authSlice.actions.setTaskStatus({
+      setTaskStatus({
         taskIndex,
         colIndex,
         newColIndex,

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import TaskModal from "../muhammed-added/modals/TaskModal.js";
-import '../muhammed-added/css/TrelloContentPage.css';
+import TaskModal from "../modals/TaskModal.js";
+import '../styles/TrelloContentPage.css';
 import { useSelector } from "react-redux";
 
-import rightButton from '../muhammed-added/right-button.svg';
-import miniCalendar from '../muhammed-added/mini-calendar.svg';
-import fork from '../muhammed-added/fork-blue.svg';
-import people from '../muhammed-added/people-blue.svg';
-import flag from '../muhammed-added/flag.svg';
+import rightButton from '../assets/right-button.svg';
+import miniCalendar from '../assets/mini-calendar.svg';
+import fork from '../assets/fork-blue.svg';
+import people from '../assets/people-blue.svg';
+import flag from '../assets/flag.svg';
 console.log()
 function TrelloContentPage({ colIndex, taskIndex, color }) {
   console.log("colIndex", colIndex);

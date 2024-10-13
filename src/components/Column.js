@@ -1,8 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import TrelloContentPage from "../../pages/TrelloContentPage";
-import authSlice from "../../store/authSlice";
-import "../css/Column.css";
+import TrelloContentPage from "../pages/TrelloContentPage";
+import authSlice from "../store/authSlice";
+import "../styles/Column.css";
+import { dragTask } from '../store/authSlice';
+
 
 function Column({ colIndex }) {
   const colors = [
@@ -34,7 +36,7 @@ function Column({ colIndex }) {
 
     if (colIndex !== prevColIndex) {
       dispatch(
-        authSlice.actions.dragTask({ colIndex, prevColIndex, taskIndex })
+        dragTask({ colIndex, prevColIndex, taskIndex })
       );
     }
   };

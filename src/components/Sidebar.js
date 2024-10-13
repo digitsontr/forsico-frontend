@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Switch } from "@headlessui/react";
-import boardIcon from "../icon-board.svg";
-import darkIcon from "../icon-dark-theme.svg";
-import lightIcon from "../icon-light-theme.svg";
-import useDarkMode from "../../hooks/useDarkMode";
-import showSidebarIcon from "../icon-show-sidebar.svg";
-import hideSidebarIcon from "../icon-hide-sidebar.svg";
+import boardIcon from "../assets/icon-board.svg";
+import darkIcon from "../assets/icon-dark-theme.svg";
+import lightIcon from "../assets/icon-light-theme.svg";
+import useDarkMode from "../hooks/useDarkMode";
+import showSidebarIcon from "../assets/icon-show-sidebar.svg";
+import hideSidebarIcon from "../assets/icon-hide-sidebar.svg";
 import AddEditBoardModal from "../modals/AddEditBoardModal";
-import authSlice from "../../store/authSlice";
-import "../css/Sidebar.css";
+import authSlice from "../store/authSlice";
+import "../styles/sidebar_wspace.css";
 
 function Sidebar({ isSideBarOpen, setIsSideBarOpen }) {
   const dispatch = useDispatch();

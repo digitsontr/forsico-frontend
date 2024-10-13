@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import crossIcon from "../icon-cross.svg";
-import authSlice from "../../store/authSlice";
-import "../css/addEditTaskModal.css";
-import rightButton from '../dark-right-button.svg';
-import close from '../close.svg';
+import crossIcon from "../assets/icon-cross.svg";
+import authSlice from "../store/authSlice";
+import "../styles/addEditTaskModal.css";
+import rightButton from '../assets/dark-right-button.svg';
+import close from '../assets/close.svg';
 
 function AddEditTaskModal({
   type,

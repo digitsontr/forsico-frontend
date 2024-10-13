@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Switch } from "@headlessui/react";
-import boardIcon from "../icon-board.svg";
-import darkIcon from "../icon-dark-theme.svg";
-import lightIcon from "../icon-light-theme.svg";
-import authSlice from "../../store/authSlice";
-import useDarkMode from "../../hooks/useDarkMode";
-import "../css/HeaderDropDown.css";
+import boardIcon from "../assets/icon-board.svg";
+import darkIcon from "../assets/icon-dark-theme.svg";
+import lightIcon from "../assets/icon-light-theme.svg";
+import authSlice from "../store/authSlice";
+import useDarkMode from "../hooks/useDarkMode";
+import "../styles/HeaderDropDown.css";
 
 
 function HeaderDropDown({ setOpenDropdown, setIsBoardModalOpen }) {

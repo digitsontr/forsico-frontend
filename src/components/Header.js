@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import Logo from "../logoForsico.png";
-import iconDown from "../icon-chevron-down.svg";
-import iconUp from "../icon-chevron-up.svg";
-import elipsis from "../icon-vertical-ellipsis.svg";
+import Logo from "../assets/logoForsico.png";
+import iconDown from "../assets/icon-chevron-down.svg";
+import iconUp from "../assets/icon-chevron-up.svg";
+import elipsis from "../assets/icon-vertical-ellipsis.svg";
 import HeaderDropDown from "./HeaderDropDown";
 import ElipsisMenu from "./ElipsisMenu";
 import AddEditTaskModal from "../modals/AddEditTaskModal";
 import AddEditBoardModal from "../modals/AddEditBoardModal";
 import { useDispatch, useSelector } from "react-redux";
 import DeleteModal from "../modals/DeleteModal";
-import authSlice from "../../store/authSlice";
-import "../css/Header.css";
+import authSlice from "../store/authSlice";
+import "../styles/Header.css";
 
 function Header({ setIsBoardModalOpen, isBoardModalOpen }) {
   const [openDropdown, setOpenDropdown] = useState(false);

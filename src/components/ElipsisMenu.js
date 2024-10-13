@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/ElipsisMenu.css";
+import "../styles/ElipsisMenu.css";
 
 
 function ElipsisMenu({ type, setOpenEditModal, setOpenDeleteModal }) {

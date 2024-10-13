@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import authSlice from "../../store/authSlice";
-import "../css/Subtask.css";
+import authSlice from "../store/authSlice";
+import "../styles/Subtask.css";
 
 function Subtask({ index, taskIndex, colIndex }) {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import data from '../muhammed-added/data.json'; 
+import data from '../assets/data.json'; 
 
 const initialState = {
     user: JSON.parse(localStorage.getItem('user')) || null,
@@ -92,14 +92,14 @@ const authSlice = createSlice({
         },
         dragTask: (state, action) => {
           const { colIndex, prevColIndex, taskIndex } = action.payload;
-          const board = state.find((board) => board.isActive);
+          const board = state.boards.find((board) => board.isActive);
           const prevCol = board.columns.find((col, i) => i === prevColIndex);
           const task = prevCol.tasks.splice(taskIndex, 1)[0];
           board.columns.find((col, i) => i === colIndex).tasks.push(task);
         },
         setSubtaskCompleted: (state, action) => {
           const payload = action.payload;
-          const board = state.find((board) => board.isActive);
+          const board = state.boards.find((board) => board.isActive);
           const col = board.columns.find((col, i) => i === payload.colIndex);
           const task = col.tasks.find((task, i) => i === payload.taskIndex);
           const subtask = task.subtasks.find((subtask, i) => i === payload.index);
@@ -107,7 +107,7 @@ const authSlice = createSlice({
         },
         setTaskStatus: (state, action) => {
           const payload = action.payload;
-          const board = state.find((board) => board.isActive);
+          const board = state.boards.find((board) => board.isActive);
           const columns = board.columns;
           const col = columns.find((col, i) => i === payload.colIndex);
           if (payload.colIndex === payload.newColIndex) return;
@@ -119,7 +119,7 @@ const authSlice = createSlice({
         },
         deleteTask: (state, action) => {
           const payload = action.payload;
-          const board = state.find((board) => board.isActive);
+          const board = state.boards.find((board) => board.isActive);
           const col = board.columns.find((col, i) => i === payload.colIndex);
           col.tasks = col.tasks.filter((task, i) => i !== payload.taskIndex);
         },

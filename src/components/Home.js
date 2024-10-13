@@ -4,8 +4,8 @@ import AddEditBoardModal from "../modals/AddEditBoardModal";
 import Column from "./Column";
 import EmptyBoard from "./EmptyBoard";
 import Sidebar from "./Sidebar";
-import VectorIcon from '../Vector.png';
-import "../css/Home.css";
+import VectorIcon from '../assets/Vector.png';
+import "../styles/Home.css";
 
 function Home() {
   const [windowSize, setWindowSize] = useState([

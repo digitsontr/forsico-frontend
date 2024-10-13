@@ -9,7 +9,7 @@ import TaskBoardHomePage from '../pages/TaskBoardHomePage';
 import ThirdPartyLogin from '../pages/ThirdPartyLogin'
 import ConfirmEmailUpdatePage from '../pages/ConfirmEmailUpdatePage';
 import WorkspaceAI from '../pages/WorkspacePages/WorkspaceAI'
-import TrelloMainPage from '../muhammed-added/components/TrelloMainPage';
+import TrelloMainPage from '../components/TrelloMainPage';
 
 const AppRoutes = () => {
     return (
