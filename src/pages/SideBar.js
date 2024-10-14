@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/sidebar.css";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   // State to track which workspace dropdown is open
@@ -25,7 +26,7 @@ const Sidebar = () => {
           src="./sidebar-home-icon.svg"
           alt="home"
         />
-        <span className="sidebar-home sidebar-blue-letter">Home</span>
+        <Link className="sidebar-home sidebar-blue-letter" to="/taskboardhomepage">Home</Link>
       </div>
       <div className="sidebar-menu">
         <img

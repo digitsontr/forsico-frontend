@@ -1,69 +1,172 @@
-/* Container for the profile cards */
-.profilepage-container {
-    margin-top: 5rem;
+/* profilepage.css */
+
+/* Main layout */
+.edit-profile-main {
+    margin-left: 250px;
     display: flex;
-    justify-content: space-around;
-    padding: 2rem;
-    background-color: #f5f5f5;
-    height: 100vh;
+    flex-direction: column;
+    width: 100%;
 }
 
-/* Card style for each section */
-.profilepage-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;
-    text-align: center;
+.edit-profile-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
-.profilepage-card .profilepage-h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
-/* Profile image and information */
-.profilepage-info .profilepage-image {
-    width: 100px;
-    height: 100px;
+.edit-profile-image-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.edit-profile-image-area .edit-profile-image {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
+    object-fit: cover;
 }
 
-.profilepage-info .profilepage-p {
-    margin: 0.5rem 0;
+.edit-profile-image-area .image-area-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    font-size: 14px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-/* Input fields for profile and other forms */
-.profilepage-input {
-    width: 90%;
+.edit-profile-image-area button:nth-child(2) {
+    background-color: #007bff;
+}
+
+.edit-profile-image-area button:nth-child(3) {
+    background-color: #f44336;
+}
+
+/* Account settings area */
+.edit-profile-form-area {
+    width: 100%;
+    max-width: 500px;
+}
+
+.account-settings h3 {
+    font-size: 18px;
+    margin: 15px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account-settings h3::after {
+    content: '>';
+    margin-left: auto;
+    font-size: 18px;
+    transform: rotate(90deg);
+}
+
+.account-settings h3.active::after {
+    transform: rotate(-90deg);
+}
+
+.edit-profile-fields,
+.change-password-fields {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.edit-profile-fields input,
+.change-password-fields input {
+    margin-bottom: 10px;
     padding: 10px;
-    margin: 0.5rem 0;
+    font-size: 16px;
+    width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.profilepage-button {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
+.edit-profile-fields button,
+.change-password-fields button {
     padding: 10px;
+    background-color: #00c2ff;
+    color: white;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 1rem;
 }
 
-.profilepage-button:hover {
-    background-color: #0056b3;
+.edit-profile-fields button:hover,
+.change-password-fields button:hover {
+    background-color: #00a0cc;
 }
 
-/* Password change fields */
-.profilepage-password-change .profilepage-input {
-    margin-bottom: 1rem;
+/* Push notifications */
+.push-notifications {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
 }
 
-/* Email change field */
-.profilepage-email-change .profilepage-input {
-    margin-bottom: 1rem;
+.push-notifications label {
+    font-size: 16px;
+}
+
+.push-notifications input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+/* More options */
+.more {
+    margin-top: 20px;
+}
+
+.more p {
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Sidebar adjustments */
+.profilepage-sidebar {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #f5f5f5;
+    padding: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .edit-profile-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-profile-image-area {
+        margin-bottom: 20px;
+    }
+
+    .edit-profile-form-area {
+        width: 100%;
+    }
 }

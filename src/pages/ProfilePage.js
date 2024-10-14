@@ -4,16 +4,16 @@ import Authentication from '../api/AuthApi/authentication.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCredentials } from '../store/authSlice';
 import Navbar from '../components/LandingPage/Navbar';
-
+import Sidebar from '../pages/SideBar.js';
 
 const Profile = () => {
     const dispatch = useDispatch();
     const authentication = new Authentication();
     const user = useSelector((state) => state.auth.user);
     const token = useSelector((state) => state.auth.token);
-    const isThirdParty = useSelector((state) => state.auth.thirdParty);
 
-    const [editProfile, setEditProfile] = useState(false);
+    const [editProfileOpen, setEditProfileOpen] = useState(false);
+    const [changePasswordOpen, setChangePasswordOpen] = useState(false);
     const [email, setEmail] = useState(user?.email || '');
     const [username, setUsername] = useState(user?.userName || '');
     const [profile, setProfile] = useState({
@@ -29,10 +29,12 @@ const Profile = () => {
         confirmPassword: ''
     });
 
-    const [editEmail, setEditEmail] = useState(false);
+    const handleProfileEditToggle = () => {
+        setEditProfileOpen(!editProfileOpen);
+    };
 
-    const handleProfileEdit = () => {
-        setEditProfile(!editProfile);
+    const handleChangePasswordToggle = () => {
+        setChangePasswordOpen(!changePasswordOpen);
     };
 
     const handleImageChange = (e) => {
@@ -50,15 +52,10 @@ const Profile = () => {
         setPassword({ ...password, [e.target.name]: e.target.value });
     };
 
-    const handleEmailChange = () => {
-        setEditEmail(!editEmail);
-    };
-
     const updateProfile = async () => {
         try {
             const response = await authentication.updateProfile(email, username, profile.firstName, profile.lastName, profile.birthDate, token.token);
             if (response.success) {
-
                 dispatch(setCredentials({
                     user: {
                         email,
@@ -70,7 +67,7 @@ const Profile = () => {
                     },
                     token: token
                 }));
-                setEditProfile(false);
+                setEditProfileOpen(false);
             } else {
                 console.error('Profile update failed', response.errors);
             }
@@ -89,6 +86,7 @@ const Profile = () => {
             if (response.success) {
                 alert('Password updated successfully!');
                 setPassword({ oldPassword: '', newPassword: '', confirmPassword: '' });
+                setChangePasswordOpen(false);
             } else {
                 console.error('Password update failed', response.errors);
             }
@@ -97,126 +95,59 @@ const Profile = () => {
         }
     };
 
-    const emailUpdate = async () => {
-        try {
-            const response = await authentication.initiateEmailUpdate(user.email, email, token.token);
-            if (response.success) {
-                alert('Email update initiated! Please check your new email for confirmation.');
-                setEditEmail(false);
-            } else {
-                console.error('Email update failed', response.errors);
-            }
-        } catch (error) {
-            console.error('Error updating email:', error);
-        }
-    };
-
     return (
         <>
-        <Navbar/>
-            <div className="profilepage-container">
-                {/* Profile Card */}
-                <div className="profilepage-card">
-                    <h2 className='profilepage-h2'>Profile</h2>
-                    <div className="profilepage-info">
-                        <div className="profilepage-image-container">
-                            <img className="profilepage-image" src={profile.profileImage} alt="Profile" />
-                        </div>
-                        {editProfile ? (
-                            <div>
-                                <input
-                                    className='profilepage-input'
-                                    type="text"
-                                    placeholder="First Name"
-                                    value={profile.firstName}
-                                    onChange={(e) => setProfile({ ...profile, firstName: e.target.value })}
-                                />
-                                <input
-                                    className='profilepage-input'
-                                    type="text"
-                                    placeholder="Last Name"
-                                    value={profile.lastName}
-                                    onChange={(e) => setProfile({ ...profile, lastName: e.target.value })}
-                                />
-                                <input
-                                    className='profilepage-input'
-                                    type="date"
-                                    value={profile.birthDate}
-                                    onChange={(e) => setProfile({ ...profile, birthDate: e.target.value })}
-                                />
-                                <input
-                                    className='profilepage-input'
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={handleImageChange}
-                                />
-                            </div>
-                        ) : (
-                            <div>
-                                <p className='profilepage-p'>First Name: {profile.firstName}</p>
-                                <p className='profilepage-p'>Last Name: {profile.lastName}</p>
-                                <p className='profilepage-p'>Birth Date: {profile.birthDate}</p>
-                            </div>
-                        )}
-                        <button className='profilepage-button' onClick={editProfile ? updateProfile : handleProfileEdit}>
-                            {editProfile ? 'Save' : 'Edit Profile'}
-                        </button>
-                    </div>
+            <Navbar />
+            <div className='profilepage-sidebar'>
+                <Sidebar />
+            </div>
+            <div className='edit-profile-main'>
+                <div className='edit-profile-title'>
+                    <h2 className='edit-profile-title'>Edit Profile</h2>
                 </div>
-                {isThirdParty === true ? (
-                    <div></div>
-                ) : (
-                    <>
-                        {/* Change Password Card */}
-                        <div className="profilepage-card">
-                            <h2>Change Password</h2>
-                            <div className="profilepage-password-change">
-                                <input
-                                    className='profilepage-input'
-                                    type="password"
-                                    placeholder="Old Password"
-                                    name="oldPassword"
-                                    value={password.oldPassword}
-                                    onChange={handlePasswordChange}
-                                />
-                                <input
-                                    className='profilepage-input'
-                                    type="password"
-                                    placeholder="New Password"
-                                    name="newPassword"
-                                    value={password.newPassword}
-                                    onChange={handlePasswordChange}
-                                />
-                                <input
-                                    className='profilepage-input'
-                                    type="password"
-                                    placeholder="Confirm New Password"
-                                    name="confirmPassword"
-                                    value={password.confirmPassword}
-                                    onChange={handlePasswordChange}
-                                />
-                                <button className='profilepage-button' onClick={updatePassword}>Confirm</button>
-                            </div>
-                        </div>
-
-                        {/* Change Email Card */}
-                        <div className="profilepage-card">
-                            <h2>Change Email</h2>
-                            {editEmail ? (
-                                <div className="profilepage-email-change">
-                                    <input className='profilepage-input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                    <button className='profilepage-button' onClick={emailUpdate}>Save Email</button>
-                                </div>
-                            ) : (
-                                <div>
-                                    <p className='profilepage-p'>{email}</p>
-                                    <button className='profilepage-button' onClick={handleEmailChange}>Change Email</button>
+                <div className='edit-profile-form'>
+                    <div className='edit-profile-image-area'>
+                        <img className='edit-profile-image' src={profile.profileImage} alt="Profile" />
+                        <input type="file" onChange={handleImageChange} />
+                        <button className='image-area-btn'>Edit</button>
+                        <button className='image-area-btn'>Delete</button>
+                    </div>
+                    <div className='edit-profile-form-area'>
+                        <div className='account-settings'>
+                            <h3 onClick={handleProfileEditToggle}>Edit profile</h3>
+                            {editProfileOpen && (
+                                <div className='edit-profile-fields'>
+                                    <input type="text" placeholder="User name" value={username} onChange={(e) => setUsername(e.target.value)} />
+                                    <input type="text" placeholder="Full name" value={profile.firstName + ' ' + profile.lastName} onChange={(e) => setProfile({ ...profile, firstName: e.target.value.split(' ')[0], lastName: e.target.value.split(' ')[1] })} />
+                                    <input type="email" placeholder="e-mail address" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <input type="date" placeholder="Birthday" value={profile.birthDate} onChange={(e) => setProfile({ ...profile, birthDate: e.target.value })} />
+                                    <button onClick={updateProfile}>Update</button>
                                 </div>
                             )}
-                        </div>
-                    </>
-                )}
 
+                            <h3 onClick={handleChangePasswordToggle}>Change password</h3>
+                            {changePasswordOpen && (
+                                <div className='change-password-fields'>
+                                    <input type="password" name="oldPassword" placeholder="Old Password" value={password.oldPassword} onChange={handlePasswordChange} />
+                                    <input type="password" name="newPassword" placeholder="New Password" value={password.newPassword} onChange={handlePasswordChange} />
+                                    <input type="password" name="confirmPassword" placeholder="Confirm Password" value={password.confirmPassword} onChange={handlePasswordChange} />
+                                    <button onClick={updatePassword}>Update</button>
+                                </div>
+                            )}
+
+                            <div className='push-notifications'>
+                                <label>Push notifications</label>
+                                <input type="checkbox" />
+                            </div>
+
+                            <div className='more'>
+                                <h3>More</h3>
+                                <p>Privacy policy</p>
+                                <p>Terms and conditions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );

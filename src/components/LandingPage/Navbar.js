@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className='navbar'>
         <div className='navbar-leftside'>
             
-            <a href='#' className='logo' ><img src='./forsico-logo-white.svg'></img></a>
+            <Link className='logo' to="/"><img src='./forsico-logo-white.svg'></img></Link>
             
             <div className='leftside-buttons'>
             <Dropdown items={projectItems} onSelect={handleSelect} selectedItem={selectedItem} title="Project" />
