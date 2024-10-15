@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import AddEditBoardModal from "../modals/AddEditBoardModal";
 import Column from "./Column";
 import EmptyBoard from "./EmptyBoard";
-import Sidebar from "./Sidebar";
+import Sidebar from "../pages/SideBar";
 import VectorIcon from '../assets/Vector.png';
 import "../styles/Home.css";
 
@@ -74,6 +74,7 @@ function Home() {
           setIsBoardModalOpen={setIsBoardModalOpen}
         />
       )}
+      <button className="add-task-button">Add Task +</button>
     </div>
   );
 }

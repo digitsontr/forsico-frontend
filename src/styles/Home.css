@@ -12,10 +12,6 @@
     /* Karanlık mod için stil ekleyebilirsiniz */
 }
 
-.home-container.sidebar-open {
-    margin-left: 261px;
-}
-
 .scrollbar-hide {
     scrollbar-width: none; /* Firefox için kaydırma çubuğunu gizle */
 }
@@ -25,9 +21,22 @@
 }
 
 .new-column-button {
-    padding-top: 90px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: start;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.add-task-button{
+    background-color:#36C5F0 ;
+    color:white;
+    border: 1px solid transparent;
+    border-radius:20px ;
+    width:100px;
+    height:40px ;
+    font-size:15px;
+    display: block;
+    align-self: end;
+    margin-bottom: 100px;
     cursor: pointer;
 }

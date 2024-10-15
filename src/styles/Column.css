@@ -7,13 +7,13 @@
     display: none; /* Chrome, Safari, Opera */
   }
   
-  .column-container {
-    margin: 0 1.25rem;
-    /* padding-top: 90px; */
+  .column-container {    
     min-width: 280px;
   }
   
   .column-header {
+    width: 300px;
+    height: 38px;
     padding: 0.5rem;
     border-radius: 9999px;
     font-weight: 600;
@@ -29,7 +29,7 @@
   }
   
   .color-red {
-    background-color: #f56565; /* bg-red-500 */
+    background-color:rgba(237, 30, 90, 1); /* bg-red-500 */
   }
   
   .color-orange {
@@ -37,7 +37,7 @@
   }
   
   .color-blue {
-    background-color: #4299e1; /* bg-blue-500 */
+    background-color: rgba(28, 60, 132, 1); /* bg-blue-500 */
   }
   
   .color-purple {
@@ -61,7 +61,7 @@
   }
   
   .color-sky {
-    background-color: #38bdf8; /* bg-sky-500 */
+    background-color: rgba(54, 197, 240, 1); /* bg-sky-500 */
   }
   
   .rounded-circle {

@@ -2,9 +2,9 @@
 
 /* Main layout */
 .edit-profile-main {
-    margin-left: 250px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
 }
 
@@ -34,9 +34,11 @@
     border-radius: 50%;
     margin-bottom: 15px;
     object-fit: cover;
+    background-color:#EFEFEF;
+    cursor: pointer;
 }
 
-.edit-profile-image-area .image-area-btn {
+.edit-profile-image-area .image-area-edit-btn,.image-area-delete-btn {
     margin-top: 10px;
     padding: 8px 15px;
     font-size: 14px;
@@ -44,16 +46,23 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    width: 76px;
+    height: 40px;
 }
 
-.edit-profile-image-area button:nth-child(2) {
-    background-color: #007bff;
+.edit-profile-image-area .image-area-edit-btn{
+    background-color: rgba(30, 41, 59, 1);
 }
 
-.edit-profile-image-area button:nth-child(3) {
-    background-color: #f44336;
+.edit-profile-image-area .image-area-delete-btn{
+    background-color: rgba(237, 30, 90, 1);
 }
 
+.btn-area{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
 /* Account settings area */
 .edit-profile-form-area {
     width: 100%;
@@ -67,18 +76,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .account-settings h3::after {
     content: '>';
     margin-left: auto;
     font-size: 18px;
-    transform: rotate(90deg);
 }
 
-.account-settings h3.active::after {
-    transform: rotate(-90deg);
-}
 
 .edit-profile-fields,
 .change-password-fields {
@@ -120,7 +126,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px 0;
-    border-bottom: 1px solid #ccc;
 }
 
 .push-notifications label {
@@ -141,19 +146,9 @@
     font-size: 14px;
     cursor: pointer;
     padding: 10px 0;
-    border-bottom: 1px solid #ccc;
 }
 
-/* Sidebar adjustments */
-.profilepage-sidebar {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 200px;
-    height: 100vh;
-    background-color: #f5f5f5;
-    padding: 10px;
-}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

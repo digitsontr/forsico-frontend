@@ -107,13 +107,16 @@ const Profile = () => {
                 </div>
                 <div className='edit-profile-form'>
                     <div className='edit-profile-image-area'>
-                        <img className='edit-profile-image' src={profile.profileImage} alt="Profile" />
+                    <img className='edit-profile-image' src={profile.profileImage} alt="" />
                         <input type="file" onChange={handleImageChange} />
-                        <button className='image-area-btn'>Edit</button>
-                        <button className='image-area-btn'>Delete</button>
+                        <div className='btn-area'>
+                        <button className='image-area-edit-btn' onClick={handleImageChange}>Edit</button>
+                        <button className='image-area-delete-btn'>Delete</button>
+                        </div>
                     </div>
                     <div className='edit-profile-form-area'>
                         <div className='account-settings'>
+                            <p className='gray-letter'>Account settings</p>
                             <h3 onClick={handleProfileEditToggle}>Edit profile</h3>
                             {editProfileOpen && (
                                 <div className='edit-profile-fields'>
@@ -137,13 +140,16 @@ const Profile = () => {
 
                             <div className='push-notifications'>
                                 <label>Push notifications</label>
-                                <input type="checkbox" />
+                                <label className="switch">
+                                    <input type="checkbox"/>
+                                    <span className='slider round'></span>
+                                    </label>
                             </div>
 
                             <div className='more'>
-                                <h3>More</h3>
-                                <p>Privacy policy</p>
-                                <p>Terms and conditions</p>
+                                <p className='gray-letter'>More</p>
+                                <h4>Privacy policy</h4>
+                                <h4>Terms and conditions</h4>
                             </div>
                         </div>
                     </div>

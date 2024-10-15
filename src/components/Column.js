@@ -8,15 +8,15 @@ import { dragTask } from '../store/authSlice';
 
 function Column({ colIndex }) {
   const colors = [
-    "color-red",
-    "color-orange",
     "color-blue",
+    "color-red",
+    "color-sky",
+    "color-orange",
     "color-purple",
     "color-green",
     "color-indigo",
     "color-yellow",
     "color-pink",
-    "color-sky",
   ];
 
   const dispatch = useDispatch();

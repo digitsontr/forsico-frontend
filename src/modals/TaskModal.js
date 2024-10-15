@@ -84,51 +84,6 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
       <div className={`modal-content-trello ${isDeleteModalOpen ? "dark-mode" : ""}`}>
         <div className="modal-header">
           <h1>{task.title}</h1>
-
-          <img
-            onClick={() => setIsElipsisMenuOpen((prevState) => !prevState)}
-            src={elipsis}
-            alt="elipsis"
-            className="elipsis-icon"
-          />
-          {isElipsisMenuOpen && (
-            <ElipsisMenu
-              setOpenEditModal={setOpenEditModal}
-              setOpenDeleteModal={setOpenDeleteModal}
-              type="Task"
-            />
-          )}
-        </div>
-        <p className="modal-description">{task.description}</p>
-
-        <p className="subtasks-info">
-          Subtasks ({completed} of {subtasks.length})
-        </p>
-
-        <div className="subtasks-wrapper">
-          {subtasks.map((subtask, index) => (
-            <Subtask
-              index={index}
-              taskIndex={taskIndex}
-              colIndex={colIndex}
-              key={index}
-            />
-          ))}
-        </div>
-
-        <div className="status-section">
-          <label className="status-label">Current Status</label>
-          <select
-            className="select-status"
-            value={status}
-            onChange={onChange}
-          >
-            {columns.map((col, index) => (
-              <option className="status-options" key={index}>
-                {col.name}
-              </option>
-            ))}
-          </select>
         </div>
       </div>
 

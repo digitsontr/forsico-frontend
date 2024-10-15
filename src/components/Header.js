@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import DeleteModal from "../modals/DeleteModal";
 import authSlice from "../store/authSlice";
 import "../styles/Header.css";
+import Sidebar from "./Sidebar";
+import Navbar from "./LandingPage/Navbar";
 
 function Header({ setIsBoardModalOpen, isBoardModalOpen }) {
   const [openDropdown, setOpenDropdown] = useState(false);
@@ -52,61 +54,7 @@ function Header({ setIsBoardModalOpen, isBoardModalOpen }) {
 
   return (
     <div className="header-container header-container-dark">
-      <header className="header">
-        {/* Left Side */}
-        <div className="header-left header-left-md">
-          <img src={Logo} alt="Logo" className="header-logo" />
-          <h3 className="header-title header-title-md">Forsico</h3>
-          <div className="flex items-center">
-            <h3 className="header-board-name header-board-name-md">
-              {board.name}
-            </h3>
-            <img
-              src={openDropdown ? iconUp : iconDown}
-              alt="dropdown icon"
-              className="header-dropdown-icon"
-              onClick={onDropdownClick}
-            />
-          </div>
-        </div>
-
-        {/* Right Side */}
-        <div className="header-right header-right-md">
-          <button
-            onClick={() => {
-              setIsTaskModalOpen((prevState) => !prevState);
-            }}
-            className="button"
-          >
-            + Add New Task
-          </button>
-
-          <img
-            onClick={() => {
-              setBoardType("edit");
-              setOpenDropdown(false);
-              setIsElipsisMenuOpen((prevState) => !prevState);
-            }}
-            src={elipsis}
-            alt="elipsis"
-            className="elipsis-icon"
-          />
-          {isElipsisMenuOpen && (
-            <ElipsisMenu
-              type="Boards"
-              setOpenEditModal={setOpenEditModal}
-              setOpenDeleteModal={setOpenDeleteModal}
-            />
-          )}
-        </div>
-
-        {openDropdown && (
-          <HeaderDropDown
-            setOpenDropdown={setOpenDropdown}
-            setIsBoardModalOpen={setIsBoardModalOpen}
-          />
-        )}
-      </header>
+      <Navbar/>
 
       {isTaskModalOpen && (
         <AddEditTaskModal
