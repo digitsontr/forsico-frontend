@@ -42,11 +42,7 @@ const WorkspaceAIPage = () => {
 
     return (
         <>
-            <Navbar />
-            <div className='workspaceai-main'>
-                <div>
-                    <Sidebar />
-                </div>
+
                 <div className="workspaceAi-container">
                     <div className='workspaceAi-top'>
                         {/* Workspace adı ve description alanı */}
@@ -134,7 +130,7 @@ const WorkspaceAIPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            
         </>
     );
 };

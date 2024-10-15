@@ -1,9 +1,12 @@
 import { useState } from "react";
 import "../styles/sidebar.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { setSelectedComponent } from '../store/selectedComponentSlice';
 
 const Sidebar = () => {
   // State to track which workspace dropdown is open
+  const dispatch = useDispatch();
   const [openDropdown, setOpenDropdown] = useState({
     Eneftimbu: false,
     Startup: false,
@@ -18,6 +21,13 @@ const Sidebar = () => {
     }));
   };
 
+  const handleClick = (comp) => {
+    dispatch(
+      setSelectedComponent({
+          selectedComponent: comp,
+      })
+    );
+  }
   return (
     <div className="sidebar">
       <div className="sidebar-menu">
@@ -26,7 +36,8 @@ const Sidebar = () => {
           src="./sidebar-home-icon.svg"
           alt="home"
         />
-        <Link className="sidebar-home sidebar-blue-letter" to="/taskboardhomepage">Home</Link>
+        {/* <Link className="sidebar-home sidebar-blue-letter" to="/taskboardhomepage">Home</Link> */}
+        <a className="sidebar-home sidebar-blue-letter" type="button" onClick={()=>handleClick("home-page")}>Home</a>
       </div>
       <div className="sidebar-menu">
         <img
@@ -48,7 +59,7 @@ const Sidebar = () => {
 
       <div className="sidebar-workspaces">
         <span className="add-workspace">WORKSPACES</span>
-        <a href="/workspaceAi"><img
+        <a type="button" onClick={()=>handleClick("workspace-ai")}><img
           className="sidebar-home-icon"
           src="./sidebar-plus-icon.svg"
           alt="plus"

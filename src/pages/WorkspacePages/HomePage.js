@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import '../styles/taskboardhomepage.css'; // CSS dosyasını ayrı tutuyoruz
-import Sidebar from './SideBar';
-import Navbar from '../components/LandingPage/Navbar';
+import '../../styles/taskboardhomepage.css'; // CSS dosyasını ayrı tutuyoruz
+import Sidebar from '../SideBar';
+import Navbar from '../../components/LandingPage/Navbar';
 
 const HomePage = () => {
     const [workspaces] = useState([
@@ -32,13 +32,7 @@ const HomePage = () => {
 
     return (
         <>
-            <div >
-                <Navbar />
-            </div>
-            <div className="taskboard-all-content">
-                <div className="sidebar-div">
-                    <Sidebar />
-                </div>
+
 
                 <div className="taskboard-main-container">
                     <div className="taskboard-homepage-layout">
@@ -122,7 +116,7 @@ const HomePage = () => {
                     </div>
                 </div>
 
-            </div>
+
 
         </>
     );
