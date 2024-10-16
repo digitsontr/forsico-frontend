@@ -10,9 +10,6 @@ const LandingPage = () => {
             <Navbar />
             <Introduction />
             <Footer/>
-            <Mainnn/>
-
-
         </div>
     );
 };

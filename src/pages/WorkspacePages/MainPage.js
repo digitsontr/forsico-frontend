@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from '../SideBar';
 import Navbar from '../../components/LandingPage/Navbar';
 import HomePage from './HomePage'
+import Board from "./Board";
 import WorkspaceAI from './WorkspaceAI'
 import { useDispatch, useSelector } from "react-redux";
 import '../../styles/taskboardhomepage.css'; 
@@ -14,6 +15,8 @@ const MainPage = () => {
             return <HomePage/>
         case 'workspace-ai':
             return <WorkspaceAI/>;
+        case 'board-page':
+            return <Board/>
         default:
             return <HomePage />;
         }

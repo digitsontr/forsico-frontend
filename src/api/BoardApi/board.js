@@ -146,6 +146,8 @@ class Board {
             throw error;
         }
     }
+
+    //TODO GETBOARDMEMBERS EKLENECEK
 }
 
 export default Board;

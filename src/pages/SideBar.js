@@ -83,7 +83,7 @@ const Sidebar = () => {
       </div>
       {openDropdown.Eneftimbu && (
         <div className="sidebar-submenu">
-          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src={SidebarDot} alt="dot" />General</span>
+          <a type="button" onClick={()=>handleClick("board-page")}><span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src={SidebarDot} alt="dot" />General</span></a>
           <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src={SidebarDot} alt="dot" />UX/UI</span>
           <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src={SidebarDot} alt="dot" />Software</span>
         </div>

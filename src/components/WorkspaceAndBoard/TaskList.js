@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import TrelloContentPage from "../pages/TrelloContentPage";
-import authSlice from "../store/authSlice";
-import "../styles/Column.css";
-import { dragTask } from '../store/authSlice';
+import TaskCard from "./TaskCard";
+import authSlice from "../../store/authSlice";
+import "../../styles/Column.css";
+import { dragTask } from '../../store/authSlice';
 
 
-function Column({ colIndex }) {
+function TaskList({ colIndex }) {
   const colors = [
     "color-blue",
     "color-red",
@@ -59,10 +59,10 @@ function Column({ colIndex }) {
       </p>
 
       {(col.tasks || []).map((task, index) => (
-        <TrelloContentPage key={index} taskIndex={index} colIndex={colIndex} color={color} />
+        <TaskCard key={index} taskIndex={index} colIndex={colIndex} color={color} />
       ))}
     </div>
   );
 }
 
-export default Column;
+export default TaskList;
