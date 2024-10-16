@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ElipsisMenu from "../components/ElipsisMenu";
 import elipsis from "../assets/icon-vertical-ellipsis.svg";
@@ -16,10 +16,7 @@ import Priority from "../assets/taskcard-info-priority.svg"
 import RightArrow from "../assets/taskcard-info-rightarrow.svg"
 import Comment from "../assets/taskcard-info-comment.svg"
 import Cross from "../assets/taskcard-info-cross.svg"
-import "quill/dist/quill.core.css";
-import Quill from 'quill';
-
-
+import TextEditor from "../components/Editor/TextEditor"
 
 function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
   const dispatch = useDispatch();
@@ -27,6 +24,8 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const boards = useSelector((state) => state.auth.boards); // authSlice'dan boards'ı al
   const board = boards.find((board) => board.isActive === true);
+
+
 
   if (!board) return null; // Eğer aktif bir board yoksa render edilmesin
 
@@ -110,10 +109,10 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
               <p className="taskcard-info-title">{task.title}</p>
             </div>
             <div className="taskcard-info-description-area">
-              <textarea  className="taskcard-info-description"placeholder="Description"></textarea>
+            <TextEditor></TextEditor>
             </div>
-            <div className="taskcard-info-comment-area">
-              <textarea className="taskcard-info-comment" placeholder="Comment"></textarea>
+            <div className="taskcard-info-comment-area" id="editor">
+             <TextEditor></TextEditor>
             </div>
             <div className="taskcard-info-subtask-area">
               <div className="taskcard-info-subtack-inside">

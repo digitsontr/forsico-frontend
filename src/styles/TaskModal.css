@@ -90,14 +90,7 @@
 
       /* Yeni Eklenenler */
 
-  
-  .quill-editor {
-    height: 100px;
-    border: 1px solid rgba(241, 241, 241, 1);
-    border-radius: 1rem;
-    background-color: rgba(241, 241, 241, 1);
-    padding: 1rem;
-  }
+
 
   .modal-content-trello{
     display: flex;
@@ -124,14 +117,13 @@
 
   .taskcard-info-lower-area{
     display: flex;
-    gap: 3rem;
+    gap: 1rem;
   }
 
   .taskcard-info-left-lower{
     display: flex;
     flex-direction: column;
-    width: 441px;
-    gap: 2rem;
+    width: 700px;
   }
 
   .taskcard-info-right-lower{
@@ -153,20 +145,13 @@
   }
 
   .taskcard-info-description-area{
-    margin-top: 1rem;
     width: 100%;
-    height:100px ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height:250px ;
   }
 
   .taskcard-info-comment-area{
     width: 100%;
-    height:100px ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height:250px ;
   }
 
   .taskcard-info-description{
@@ -240,6 +225,7 @@
     border: 1px solid rgba(241, 241, 241, 1);
     background-color: rgba(241, 241, 241, 1);
     border-radius: 1rem;
+    margin-top: 1rem;
   }
 
 .taskcard-info-assignees,.taskcard-info-due-date,.taskcard-info-status,.taskcard-info-priority,.taskcard-info-features{
