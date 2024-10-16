@@ -59,10 +59,10 @@ const Footer = () => {
         <div className="background"></div>
         <div className="footer-left-area">
           <div className="left-area-title">
-            <h2>Contact us for more information</h2>
+            <h2 className="footer-left-h2">Contact us for more information</h2>
           </div>
           <div className="left-area-content">
-            <p>
+            <p className="footer-left-p">
               Regístrate y disfruta de todas las ventajas que te ofrecemos,
               introduce tus platos y empieza la transformación de tu
               restaurante.
@@ -70,10 +70,11 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-input-group">
-          <form type="post" onSubmit={handleFormSubmit}>
-            <div className="input-group">
-              <img src={fullNameIcon} alt="fullname" />
+          <form className="footer-form" type="post" onSubmit={handleFormSubmit}>
+            <div className="input-group-footer">
+              <img className="input-group-image" src={fullNameIcon} alt="fullname" />
               <input
+              className="footer-input"
                 type="text"
                 value={ticketState.fullName}
                 onChange={handleFullNameChange}
@@ -81,22 +82,21 @@ const Footer = () => {
                 required
               />
             </div>
-
-            <div className="footer-bottom">
-                <div className="logo">
-                    <span href="#"><img className="footer-bottom-image" src="./forsico-logo.svg" alt="logo" /></span>
-                </div>
-                <div className='footer-middle'><p className="footer-bottom-p">© 2024 Forsico. All rights reserved.</p></div>
-                <div className="social-icons">
-                    <span className='footer-social-icon linkedin-icon ' href="#"><img className="footer-social-image" src={linkedInIcon} alt="linkedin" /></span>
-                    <span className='footer-social-icon instagram-icon' href="#"><img className="footer-social-image" src={instagramIcon} alt="instagram" /></span>
-                    <span className='footer-social-icon linkedin-icon' href="#"><img className="footer-social-image" src={twitterIcon} alt="x" /></span>
-                </div>
+            <div className="input-group-footer">
+              <img className="input-group-image" src={emailIcon} alt="fullname" />
+              <input
+              className="footer-input"
+                type="email"
+                value={ticketState.email}
+                onChange={handleEmailChange}
+                placeholder="E-Mail Address"
+                required
+              />
             </div>
 
-            <div className="input-group">
+            <div className="input-group-footer">
               <input
-                className="message"
+                className="footer-message"
                 value={ticketState.content}
                 onChange={handleContentChange}
                 placeholder="Message"
@@ -105,8 +105,8 @@ const Footer = () => {
             </div>
 
             <div className="privacy-policy ">
-              <input onChange={handlePrivacyChange} type="checkbox" required />
-              <label>I have read and accept the privacy policy.</label>
+              <input className="privacy-input" onChange={handlePrivacyChange} type="checkbox" required />
+              <label className="privacy-label">I have read and accept the privacy policy.</label>
             </div>
 
             <button type="submit" className="send-btn">
@@ -119,20 +119,20 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="logo">
           <span href="#">
-            <img src="./forsico-logo.svg" alt="logo" />
+            <img className="footer-bottom-image" src="./forsico-logo.svg" alt="logo" />
           </span>
         </div>
         <div className="footer-middle">
-          <p>© 2024 Forsico. All rights reserved.</p>
+          <p className="footer-bottom-p">© 2024 Forsico. All rights reserved.</p>
         </div>
         <div className="social-icons">
-          <span className="icon linkedin-icon" href="#">
+          <span className="icon linkedin-icon footer-social-icon" href="#">
             <img src={linkedInIcon} alt="linkedin" />
           </span>
-          <span className="icon instagram-icon" href="#">
+          <span className="icon instagram-icon footer-social-icon" href="#">
             <img src={instagramIcon} alt="instagram" />
           </span>
-          <span className="icon linkedin-icon" href="#">
+          <span className="icon linkedin-icon footer-social-icon" href="#">
             <img src={twitterIcon} alt="x" />
           </span>
         </div>
