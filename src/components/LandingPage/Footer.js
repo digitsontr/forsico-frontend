@@ -82,15 +82,16 @@ const Footer = () => {
               />
             </div>
 
-            <div className="input-group">
-              <img src={emailIcon} alt="email" />
-              <input
-                type="email"
-                value={ticketState.email}
-                onChange={handleEmailChange}
-                placeholder="E-mail address"
-                required
-              />
+            <div className="footer-bottom">
+                <div className="logo">
+                    <span href="#"><img className="footer-bottom-image" src="./forsico-logo.svg" alt="logo" /></span>
+                </div>
+                <div className='footer-middle'><p className="footer-bottom-p">© 2024 Forsico. All rights reserved.</p></div>
+                <div className="social-icons">
+                    <span className='footer-social-icon linkedin-icon ' href="#"><img className="footer-social-image" src={linkedInIcon} alt="linkedin" /></span>
+                    <span className='footer-social-icon instagram-icon' href="#"><img className="footer-social-image" src={instagramIcon} alt="instagram" /></span>
+                    <span className='footer-social-icon linkedin-icon' href="#"><img className="footer-social-image" src={twitterIcon} alt="x" /></span>
+                </div>
             </div>
 
             <div className="input-group">
