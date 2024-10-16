@@ -5,6 +5,18 @@ import { useNavigate } from 'react-router-dom';
 import '../../styles/loginModal.css';
 import Authentication from '../../api/AuthApi/authentication.js';
 const config = require("../../config");
+import Cross from "../../assets/close.svg"
+import Google from "../../assets/google.svg"
+import Microsoft from "../../assets/microsoft.svg"
+import Password from "../../assets/passwordInput.svg"
+import Email from "../../assets/emailInput.svg"
+import InputError from "../../assets/input-error-icon.svg"
+import PasswordInputEye from "../../assets/passwordInputEye.svg"
+
+
+
+
+
 
 const LoginModal = ({ onClose, signUp, forgotPassword }) => {
     const [email, setEmail] = useState('');
@@ -82,7 +94,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                     <span>
                         <img
                             className='login-modal-close-icon'
-                            src='./cross-icon.svg'
+                            src={Cross}
                             alt='Close'
                             onClick={onClose}
                         />
@@ -105,7 +117,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                         <span>
                             <img
                                 className='login-google-icon'
-                                src='./google.svg'
+                                src={Google}
                                 alt='Google'
                             />
                         </span>
@@ -115,7 +127,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                         <span>
                             <img
                                 className='login-microsoft-icon'
-                                src='./microsoft.svg'
+                                src={Microsoft}
                                 alt='Microsoft'
                             />
                         </span>
@@ -127,7 +139,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                 <div className={`login-modal-input ${!validateEmail(email) && email !== '' ? 'error' : ''}`}>
                     <div className="input-icon-wrapper">
                         <img
-                            src="./emailInput.svg"
+                            src={Email}
                             className="input-icon"
                             alt="Icon"
                         />
@@ -142,7 +154,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                         />
                         {!validateEmail(email) && email !== '' && (
                             <span className="login-error-icon">
-                                <img src="./input-error-icon.svg" alt="Error" />
+                                <img src={InputError} alt="Error" />
                             </span>
                         )}
                     </div>
@@ -150,7 +162,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                 <div className='login-modal-input'>
                     <div className='input-icon-wrapper'>
                         <img
-                            src='./passwordInput.svg'
+                            src={Password}
                             className='input-icon-left'
                             alt='Password Icon'
                         />
@@ -165,7 +177,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                             placeholder='Password'
                         />
                         <img
-                            src='./passwordInputEye.svg'
+                            src={PasswordInputEye}
                             className='input-icon-right'
                             alt='Toggle Visibility'
                             onClick={togglePasswordVisibility}

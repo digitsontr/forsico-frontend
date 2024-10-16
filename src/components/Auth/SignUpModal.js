@@ -1,6 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../../styles/signUp.css';
 import Authentication from '../../api/AuthApi/authentication'
+import Cross from "../../assets/cross-icon.svg"
+import Google from "../../assets/google.svg"
+import Microsoft from "../../assets/microsoft.svg"
+import Username from "../../assets/fullNameInput.svg"
+import Email from "../../assets/emailInput.svg"
+import Password from "../../assets/passwordInput.svg"
+import PasswordInputEye from "../../assets/passwordInputEye.svg"
+
+
 const config = require("../../config");
 
 const SignUpModal = ({ onClose, login }) => {
@@ -80,7 +89,7 @@ const SignUpModal = ({ onClose, login }) => {
         <div className='signup-modal-container'>
             <div className='signup-modal-card' ref={modalRef}>
                 <div className='signup-modal-close'>
-                    <span><img className='signup-modal-close-icon' src='./cross-icon.svg' alt="Close" onClick={onClose}></img></span>
+                    <span><img className='signup-modal-close-icon' src={Cross} alt="Close" onClick={onClose}></img></span>
                 </div>
                 <div className='signup-modal-header'>
                     <div className='signup-modal-title'>
@@ -94,11 +103,11 @@ const SignUpModal = ({ onClose, login }) => {
                 </div>
                 <div className='signup-modal-auth-options'>
                     <button className='signup-google-auth' onClick={handleGoogleButtonClick} >
-                        <span><img className='signup-google-icon' src='./google.svg' alt="Google"></img></span>
+                        <span><img className='signup-google-icon' src={Google} alt="Google"></img></span>
                     </button>
                     <span style={{ width: '20px' }}></span>
                     <button className='signup-microsoft-auth' onClick={handleMicrosoftButtonClick}>
-                        <span><img className='signup-microsoft-icon' src='./microsoft.svg' alt="Microsoft"></img></span>
+                        <span><img className='signup-microsoft-icon' src={Microsoft} alt="Microsoft"></img></span>
                     </button>
                 </div>
                 <div className='signup-modal-separator'>
@@ -106,11 +115,11 @@ const SignUpModal = ({ onClose, login }) => {
                 </div>
                 <div className={`signup-modal-input ${!userName && errorMessage ? 'error' : ''}`}>
                     <div className="input-icon-wrapper">
-                        <img src='./fullNameInput.svg' className='input-icon' alt='Full Name Icon' />
+                        <img src={Username} className='input-icon' alt='Full Name Icon' />
                         <input
                             className={`signup-input-fullname ${!userName && errorMessage ? 'error' : ''}`}
                             type='text'
-                            name='fullname'
+                            name='userName'
                             value={userName}
                             onChange={(e) => setUserName(e.target.value)}
                             required
@@ -121,7 +130,7 @@ const SignUpModal = ({ onClose, login }) => {
 
                 <div className='signup-modal-input'>
                     <div className='input-icon-wrapper'>
-                        <img src='./fullNameInput.svg' className='input-icon' alt='Full Name Icon' />
+                        <img src={Username} className='input-icon' alt='Full Name Icon' />
                         <input
                             className='signup-input-fullname'
                             type='text'
@@ -135,7 +144,7 @@ const SignUpModal = ({ onClose, login }) => {
                 </div>
                 <div className={`signup-modal-input ${!validateEmail(email) && email !== '' ? 'error' : ''}`}>
                     <div className="input-icon-wrapper">
-                        <img src='./emailInput.svg' className='input-icon' alt='Email Icon' />
+                        <img src={Email} className='input-icon' alt='Email Icon' />
                         <input
                             className={`signup-input-email ${!validateEmail(email) && email !== '' ? 'error' : ''}`}
                             type='email'
@@ -154,7 +163,7 @@ const SignUpModal = ({ onClose, login }) => {
                 </div>
                 <div className={`signup-modal-input ${!password && errorMessage ? 'error' : ''}`}>
                     <div className="input-icon-wrapper">
-                        <img src='./passwordInput.svg' className='input-icon-left' alt='Password Icon' />
+                        <img src={Password} className='input-icon-left' alt='Password Icon' />
                         <input
                             id='password-input'
                             className={`signup-input-password ${!password && errorMessage ? 'error' : ''}`}
@@ -166,7 +175,7 @@ const SignUpModal = ({ onClose, login }) => {
                             placeholder='Password'
                         />
                         <img
-                            src='./passwordInputEye.svg'
+                            src={PasswordInputEye}
                             className='input-icon-right'
                             alt='Toggle Visibility'
                             onClick={togglePasswordVisibility}

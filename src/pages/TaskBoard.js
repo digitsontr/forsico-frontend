@@ -4,6 +4,7 @@ import '../styles/taskboard.css'; // CSS dosyasını ayrı tutuyoruz
 import Sidebar from "./SideBar";
 import Navbar from "../components/LandingPage/Navbar"
 
+
 const initialColumns = {
   "UX-UI": {
     name: "UX-UI",

@@ -6,6 +6,7 @@ import linkedInIcon from "../../assets/linkedin-icon.svg";
 import instagramIcon from "../../assets/instagram-icon.svg";
 import twitterIcon from "../../assets/x-icon.svg";
 import Support from "../../api/SupportApi/index";
+import FooterLogo from "../../assets/forsico-logo.svg"
 
 const Footer = () => {
   const support = new Support();
@@ -119,7 +120,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="logo">
           <span href="#">
-            <img className="footer-bottom-image" src="./forsico-logo.svg" alt="logo" />
+            <img className="footer-bottom-image" src={FooterLogo} alt="logo" />
           </span>
         </div>
         <div className="footer-middle">

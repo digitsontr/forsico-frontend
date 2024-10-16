@@ -3,6 +3,11 @@ import "../styles/sidebar.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { setSelectedComponent } from '../store/selectedComponentSlice';
+import SidebarHome from "../assets/sidebar-home-icon.svg"
+import SidebarMyTasks from "../assets/sidebar-tasks-icon.svg"
+import SidebarMyDocs from "../assets/sidebar-docs-icon.svg"
+import SidebarPlus from "../assets/sidebar-plus-icon.svg"
+import SidebarDot from "../assets/sidebar-dot-icon.svg"
 
 const Sidebar = () => {
   // State to track which workspace dropdown is open
@@ -33,7 +38,7 @@ const Sidebar = () => {
       <div className="sidebar-menu">
         <img
           className="sidebar-home-icon"
-          src="./sidebar-home-icon.svg"
+          src={SidebarHome}
           alt="home"
         />
         {/* <Link className="sidebar-home sidebar-blue-letter" to="/taskboardhomepage">Home</Link> */}
@@ -42,7 +47,7 @@ const Sidebar = () => {
       <div className="sidebar-menu">
         <img
           className="sidebar-tasks-icon"
-          src="./sidebar-tasks-icon.svg"
+          src={SidebarMyTasks}
           alt="tasks"
         />
         <span className="sidebar-blue-letter">My Tasks</span>
@@ -50,7 +55,7 @@ const Sidebar = () => {
       <div className="sidebar-menu">
         <img
           className="sidebar-docs-icon"
-          src="./sidebar-docs-icon.svg"
+          src={SidebarMyDocs}
           alt="docs"
         />
         <span className="sidebar-blue-letter">My Docs</span>
@@ -61,7 +66,7 @@ const Sidebar = () => {
         <span className="add-workspace">WORKSPACES</span>
         <a type="button" onClick={()=>handleClick("workspace-ai")}><img
           className="sidebar-home-icon"
-          src="./sidebar-plus-icon.svg"
+          src={SidebarPlus}
           alt="plus"
         /></a>
       </div>
@@ -70,7 +75,7 @@ const Sidebar = () => {
       <div className="sidebar-menu sidebar-workspaces-menu">
         <img
           className="sidebar-home-icon"
-          src="./sidebar-dot-icon.svg"
+          src={SidebarDot}
           alt="dot"
           onClick={() => toggleDropdown("Eneftimbu")}
         />
@@ -78,9 +83,9 @@ const Sidebar = () => {
       </div>
       {openDropdown.Eneftimbu && (
         <div className="sidebar-submenu">
-          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src="./sidebar-dot-icon.svg" alt="dot" />General</span>
-          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src="./sidebar-dot-icon.svg" alt="dot" />UX/UI</span>
-          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src="./sidebar-dot-icon.svg" alt="dot" />Software</span>
+          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src={SidebarDot} alt="dot" />General</span>
+          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src={SidebarDot} alt="dot" />UX/UI</span>
+          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src={SidebarDot} alt="dot" />Software</span>
         </div>
       )}
 
@@ -88,7 +93,7 @@ const Sidebar = () => {
       <div className="sidebar-menu">
         <img
           className="sidebar-home-icon"
-          src="./sidebar-dot-icon.svg"
+          src={SidebarDot}
           alt="dot"
           onClick={() => toggleDropdown("Startup")}
         />
@@ -97,8 +102,8 @@ const Sidebar = () => {
       {openDropdown.Startup && (
         <div className="sidebar-submenu">
           
-          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src="./sidebar-dot-icon.svg" alt="dot" />General</span>
-          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src="./sidebar-dot-icon.svg" alt="dot" />Marketing</span>
+          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src={SidebarDot} alt="dot" />General</span>
+          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src={SidebarDot} alt="dot" />Marketing</span>
         </div>
       )}
 
@@ -106,7 +111,7 @@ const Sidebar = () => {
       <div className="sidebar-menu">
         <img
           className="sidebar-home-icon"
-          src="./sidebar-dot-icon.svg"
+          src={SidebarDot}
           alt="dot"
           onClick={() => toggleDropdown("Forsico")}
         />
@@ -114,8 +119,8 @@ const Sidebar = () => {
       </div>
       {openDropdown.Forsico && (
         <div className="sidebar-submenu">
-          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src="./sidebar-dot-icon.svg" alt="dot" />General</span>
-          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src="./sidebar-dot-icon.svg" alt="dot" />Social Media</span>
+          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src={SidebarDot} alt="dot" />General</span>
+          <span className="sidebar-blue-letter"><img className="sidebar-submenu-dot" src={SidebarDot} alt="dot" />Social Media</span>
         </div>
       )}
     </div>

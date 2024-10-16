@@ -8,6 +8,17 @@ import AddEditTaskModal from "./AddEditTaskModal";
 import DeleteModal from "./DeleteModal";
 import "../styles/TaskModal.css";
 import { setTaskStatus } from '../store/authSlice';
+import Plus from "../assets/sidebar-plus-icon.svg"
+import Assignees from "../assets/taskcard-info-assignees.svg"
+import DueDate from "../assets/taskcard-info-duedate.svg"
+import Status from "../assets/taskcard-info-status.svg"
+import Priority from "../assets/taskcard-info-priority.svg"
+import RightArrow from "../assets/taskcard-info-rightarrow.svg"
+import Comment from "../assets/taskcard-info-comment.svg"
+import Cross from "../assets/taskcard-info-cross.svg"
+import "quill/dist/quill.core.css";
+import Quill from 'quill';
+
 
 
 function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
@@ -16,7 +27,7 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const boards = useSelector((state) => state.auth.boards); // authSlice'dan boards'ı al
   const board = boards.find((board) => board.isActive === true);
-  
+
   if (!board) return null; // Eğer aktif bir board yoksa render edilmesin
 
   const columns = board.columns;
@@ -82,9 +93,64 @@ function TaskModal({ taskIndex, colIndex, setIsTaskModalOpen }) {
   return (
     <div onClick={onClose} className="modal-wrapper">
       <div className={`modal-content-trello ${isDeleteModalOpen ? "dark-mode" : ""}`}>
-        <div className="modal-header">
-          <h1>{task.title}</h1>
+        <div className="taskcard-info-upper-area">
+          <div className="taskcard-info-left-upper">
+            <span>Forsico/General</span>
+          </div>
+          <div className="taskcard-infor-right-upper">
+            <img src={RightArrow} alt="taskcard-info-right-arrow" />
+            <img src={Cross} alt="taskcard-info-cross" />
+          </div>
         </div>
+        <div className="taskcard-info-line">
+        </div>
+        <div className="taskcard-info-lower-area">
+          <div className="taskcard-info-left-lower">
+            <div className="taskcard-info-title-area">
+              <p className="taskcard-info-title">{task.title}</p>
+            </div>
+            <div className="taskcard-info-description-area">
+              <textarea  className="taskcard-info-description"placeholder="Description"></textarea>
+            </div>
+            <div className="taskcard-info-comment-area">
+              <textarea className="taskcard-info-comment" placeholder="Comment"></textarea>
+            </div>
+            <div className="taskcard-info-subtask-area">
+              <div className="taskcard-info-subtack-inside">
+                <p className="taskcard-info-gray-letter">Create subtask of this task</p>
+                <button className="generate-subtask-button">Generate Subtask</button>
+              </div>
+            </div>
+            <div className="taskcard-info-checklist-area">
+              <input className="checklist-checkbox" type="checkbox" />
+              <p className="taskcard-info-gray-letter">Create a checklist for this task</p>
+            </div>
+          </div>
+          <div className="taskcard-info-right-lower">
+            <div className="taskcard-info-assignees">
+              <a className="td-none" href="#"><img src={Assignees} alt="assignees" />Assignees</a>
+              <img src={Plus} alt="plus" />
+            </div>
+            <div className="taskcard-info-due-date">
+              <a className="td-none" href="#"><img src={DueDate} alt="duedate" />Due Date</a>
+              <img src={Plus} alt="plus" />
+            </div>
+            <div className="taskcard-info-status">
+              <a className="td-none" href="#"><img src={Status} alt="status" />Status</a>
+              <img src={Plus} alt="plus" />
+            </div>
+            <div className="taskcard-info-priority">
+              <a className="td-none" href="#"><img src={Priority} alt="priority" />Priority</a>
+              <img src={Plus} alt="plus" />
+            </div>
+            <div className="taskcard-info-features">
+              <a className="td-none" href="#">Features</a>
+              <img src={Plus} alt="plus" />
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
       {isDeleteModalOpen && (

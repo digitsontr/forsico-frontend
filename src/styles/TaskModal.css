@@ -1,4 +1,4 @@
-.modal-wrapper {
+/*.modal-wrapper {
     position: fixed;
     right: 0;
     top: 0;
@@ -87,5 +87,173 @@
   .delete-modal,
   .add-edit-task-modal {
     /* Add any modal-specific styling here */
+
+      /* Yeni Eklenenler */
+
+  
+  .quill-editor {
+    height: 100px;
+    border: 1px solid rgba(241, 241, 241, 1);
+    border-radius: 1rem;
+    background-color: rgba(241, 241, 241, 1);
+    padding: 1rem;
   }
+
+  .modal-content-trello{
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+    height: 700px;
+  }
+
+  .taskcard-info-upper-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .taskcard-infor-right-upper{
+    display: flex;
+    gap: 1rem;
+  }
+
+  .taskcard-info-line{
+    width: 100%;
+    border-bottom: 1px solid gray;
+  }
+
+  .taskcard-info-lower-area{
+    display: flex;
+    gap: 3rem;
+  }
+
+  .taskcard-info-left-lower{
+    display: flex;
+    flex-direction: column;
+    width: 441px;
+    gap: 2rem;
+  }
+
+  .taskcard-info-right-lower{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 215px;
+    border: 1px solid rgba(241, 241, 241, 1);
+    background-color: rgba(241, 241, 241, 1);
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .taskcard-info-title-area{
+    font-size: 32px;
+    margin: 0;
+    width: 100%;
+    height: 50px;
+  }
+
+  .taskcard-info-description-area{
+    margin-top: 1rem;
+    width: 100%;
+    height:100px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .taskcard-info-comment-area{
+    width: 100%;
+    height:100px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .taskcard-info-description{
+    border: 1px solid rgba(241, 241, 241, 1);
+    background-color: rgba(241, 241, 241, 1);
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 100%;
+    height: 90px;
+  }
+
+  .taskcard-info-comment{
+    padding: 1rem;
+    width: 100%;
+    height: 90px;
+    border: 1px solid rgba(241, 241, 241, 1);
+    background-color: rgba(241, 241, 241, 1);
+    border-radius: 1rem;
+
+  }
+
+  .taskcard-info-subtask-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 150px;
+    border: 1px solid rgba(241, 241, 241, 1);
+    background-color: rgba(241, 241, 241, 1);
+    border-radius: 1rem;
+  }
+
+  .taskcard-info-subtack-inside{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .taskcard-info-gray-letter{
+    color: rgba(172, 172, 172, 1);
+  }
+
+  .generate-subtask-button{
+    width: 156px;
+    height: 40px;
+    background-color: rgba(54, 197, 240, 1);
+    border: none;
+    border-radius: 25px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 600;
+  }
+
+
+  .checklist-checkbox{
+    width: 24px;
+    height: 24px;
+  }
+
+  .taskcard-info-checklist-area{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    border: 1px solid rgba(241, 241, 241, 1);
+    background-color: rgba(241, 241, 241, 1);
+    border-radius: 1rem;
+  }
+
+.taskcard-info-assignees,.taskcard-info-due-date,.taskcard-info-status,.taskcard-info-priority,.taskcard-info-features{
+  display: flex;
+  justify-content: space-between;
+}
+
+.td-none{
+  text-decoration: none;
+  color: rgba(148, 163, 184, 1);
+  text-align: center;
+  display: flex;
+  gap: 1rem;
+}
+
+
   

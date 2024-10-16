@@ -10,6 +10,7 @@ import AddEditBoardModal from "../modals/AddEditBoardModal";
 import authSlice from "../store/authSlice";
 import "../styles/sidebar_wspace.css";
 
+
 function Sidebar({ isSideBarOpen, setIsSideBarOpen }) {
   const dispatch = useDispatch();
   const [isBoardModalOpen, setIsBoardModalOpen] = useState(false);

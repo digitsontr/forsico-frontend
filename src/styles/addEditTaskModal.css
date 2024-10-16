@@ -9,9 +9,6 @@
 }
 
 .modal-content-trello {
-    width: 750px;
-    height: auto;
-    max-height: 681.5px;
     overflow-y: auto;
     position: fixed;
     top: 50%;

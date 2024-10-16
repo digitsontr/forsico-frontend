@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import '../../styles/taskboardhomepage.css'; // CSS dosyasını ayrı tutuyoruz
 import Sidebar from '../SideBar';
 import Navbar from '../../components/LandingPage/Navbar';
+import Graphic from "../../assets/workspacehomepage-graphic.svg"
+import HomePagePen from "../../assets/homepage-pen-icon.svg"
+import Member1 from "../../assets/alper.jpeg"
+import Member2 from "../../assets/furkan.jpeg"
+import Member3 from "../../assets/murat.jpeg"
 
 const HomePage = () => {
     const [workspaces] = useState([
@@ -63,7 +68,7 @@ const HomePage = () => {
                                 </div>
                             </div>
                             <div className="general-info-middleside">
-                                <img className="graphic" src="./workspacehomepage-graphic.svg" alt="graphic" />
+                                <img className="graphic" src={Graphic} alt="graphic" />
                             </div>
                             <div className="general-info-rightside">
                                 <div className="rightside-elements">
@@ -92,7 +97,7 @@ const HomePage = () => {
                                                 <div className="workspace-card-upperside">
                                                     <span className="workspace-card-title gray-letter">{section.name}</span>
                                                     <span className="workspace-card-icon">
-                                                        <img src="./homepage-pen-icon.svg" alt={section.name} />
+                                                        <img src={HomePagePen} alt={section.name} />
                                                     </span>
                                                 </div>
                                                 <div className="workspace-card-middleside">
@@ -101,9 +106,9 @@ const HomePage = () => {
                                                 <div className="workspace-card-lowerside">
                                                     <div className="members-image">
                                                         {/* Placeholder for member images */}
-                                                        <img className="member-image" src="./alper.jpeg" alt="member" />
-                                                        <img className="member-image" src="./murat.jpeg" alt="member" />
-                                                        <img className="member-image" src="./furkan.jpeg" alt="member" />
+                                                        <img className="member-image" src={Member1} alt="member" />
+                                                        <img className="member-image" src={Member2} alt="member" />
+                                                        <img className="member-image" src={Member3} alt="member" />
                                                     </div>
                                                     <span className="total-members">+{section.members}</span>
                                                 </div>

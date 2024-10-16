@@ -6,6 +6,7 @@ import Button from "npm-forsico-ui/dist/Button"
 import Dropdown from "npm-forsico-ui/dist/Dropdown"
 import '../../styles/navbar.css';
 import { Link } from 'react-router-dom';
+import ForsicoLogoWhite from "../../assets/forsico-logo-white.svg"
 
 
 const Navbar = () => {
@@ -48,7 +49,7 @@ const Navbar = () => {
         <div className='navbar'>
         <div className='navbar-leftside'>
             
-            <Link className='logo' to="/"><img src='./forsico-logo-white.svg'></img></Link>
+            <Link className='logo' to="/"><img src={ForsicoLogoWhite}></img></Link>
             
             <div className='leftside-buttons'>
             <Dropdown items={projectItems} onSelect={handleSelect} selectedItem={selectedItem} title="Project" />
