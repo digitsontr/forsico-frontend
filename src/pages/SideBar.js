@@ -64,7 +64,7 @@ const Sidebar = () => {
 
       <div className="sidebar-workspaces">
         <span className="add-workspace">WORKSPACES</span>
-        <a type="button" onClick={()=>handleClick("workspace-ai")}><img
+        <a className="sidebar-plus-icon"  type="button" onClick={()=>handleClick("workspace-ai")}><img
           className="sidebar-home-icon"
           src={SidebarPlus}
           alt="plus"

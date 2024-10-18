@@ -210,7 +210,12 @@
     color: #00796B;
 }
 
-.task-icon {
+.task-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
     font-size: 16px;
     cursor: pointer;
     margin-left: 1rem;
