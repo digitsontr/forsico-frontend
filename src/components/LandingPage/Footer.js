@@ -50,7 +50,7 @@ const Footer = () => {
     e.preventDefault();
 
     if (ticketState.privacyAccepted) {
-      await support.createContactTicket();
+      await support.createContactTicket(ticketState.content, ticketState.fullName, ticketState.email);
     } else {
       //TODO show alert
     }
@@ -106,13 +106,13 @@ const Footer = () => {
             </div>
 
             <div className="input-group-footer">
-              <input
+              <textarea
                 className="footer-message"
                 value={ticketState.content}
                 onChange={handleContentChange}
                 placeholder="Message"
                 required
-              ></input>
+              ></textarea>
             </div>
 
             <div className="privacy-policy ">
