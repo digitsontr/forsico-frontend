@@ -1,0 +1,126 @@
+/* Genel stil */
+.my-docs {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .view-toggle .btn-view {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .document-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    position: relative;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .document-title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .send-icon {
+    font-size: 16px;
+    color: #888;
+    cursor: pointer;
+  }
+  
+  .document-time {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .document-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .comments {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .comment-icon {
+    margin-right: 5px;
+    color: #3b82f6;
+  }
+  
+  .tags {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .tag {
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: white;
+    text-transform: capitalize;
+  }
+  
+  .tag-ui {
+    background-color: #7ad7f0;
+  }
+  
+  .tag-marketing {
+    background-color: #4caf50;
+  }
+  
+  .tag-design {
+    background-color: #ff5722;
+  }
+  
+  .tag-seo {
+    background-color: #ff9800;
+  }
+  
+  .tag-backend {
+    background-color: #9c27b0;
+  }
+  
+  .add-docs-btn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #40b4ff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }

@@ -9,7 +9,8 @@ import ThirdPartyLogin from '../pages/ThirdPartyLogin'
 import ConfirmEmailUpdatePage from '../pages/ConfirmEmailUpdatePage';
 import WorkspaceAI from '../pages/WorkspacePages/WorkspaceAI'
 import MainPage from '../pages/WorkspacePages/MainPage';
-
+import MyDocs from '../pages/MyDocs';
+import TaskModal from '../modals/TaskModal';
 const AppRoutes = () => {
     return (
         <Router>
@@ -23,6 +24,8 @@ const AppRoutes = () => {
                 <Route path="/confirmchangeemail" element={<ConfirmEmailUpdatePage />} />
                 <Route path="/workspaceAi" element={<WorkspaceAI />} />
                 <Route path="/workspace/mainpage" element={<MainPage />} />
+                <Route path="/mydocs" element={<MyDocs />} />
+                <Route path="/taskboard" element={<TaskModal />} />                
             </Routes>
         </Router>
     );

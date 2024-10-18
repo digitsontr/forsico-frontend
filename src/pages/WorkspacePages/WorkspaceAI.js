@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import '../../styles/workspaceCss/workspaceAi.css';
 import Sidebar from "../SideBar";
 import Navbar from "../../components/LandingPage/Navbar";
+import WorkspaceTitleİcon from "../../assets/workspaceAi-title-icon.svg"
+import Tickİcon from "../../assets/ai-message-tick-icon.svg"
+import Crossİcon from "../../assets/ai-message-cross-icon.svg"
+
 
 const WorkspaceAIPage = () => {
     const [workspaceName, setWorkspaceName] = useState('Workspace Name');
@@ -61,7 +65,7 @@ const WorkspaceAIPage = () => {
                             ) : (
                                 <>
                                     <span className="workspaceAi-title" onClick={handleNameEditClick}>{workspaceName}</span>
-                                    <img src="./workspaceAi-title-icon.svg" alt="Workspace Icon" />
+                                    <img src={WorkspaceTitleİcon} alt="Workspace Icon" />
                                 </>
                             )}
                         </div>
@@ -119,8 +123,8 @@ const WorkspaceAIPage = () => {
                                         </div>
                                     </div>
                                     <div className='task-icons'>
-                                        <span className='task-icon'><img src="./ai-message-tick-icon.svg" alt="tick" /></span>
-                                        <span className='task-icon'><img src="./ai-message-cross-icon.svg" alt="cross" /></span>
+                                        <span className='task-icon'><img src={Tickİcon} alt="tick" /></span>
+                                        <span className='task-icon'><img src={Crossİcon} alt="cross" /></span>
                                     </div>
                                 </div>
                             ))}

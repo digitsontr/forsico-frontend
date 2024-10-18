@@ -98,58 +98,60 @@ const Profile = () => {
     return (
         <>
             <Navbar />
-            <div className='profilepage-sidebar'>
-                <Sidebar />
-            </div>
-            <div className='edit-profile-main'>
-                <div className='edit-profile-title'>
-                    <h2 className='edit-profile-title'>Edit Profile</h2>
+            <div className='profile-page-main-div'>
+                <div className='profilepage-sidebar'>
+                    <Sidebar />
                 </div>
-                <div className='edit-profile-form'>
-                    <div className='edit-profile-image-area'>
-                    <img className='edit-profile-image' src={profile.profileImage} alt="" />
-                        <input type="file" onChange={handleImageChange} />
-                        <div className='btn-area'>
-                        <button className='image-area-edit-btn' onClick={handleImageChange}>Edit</button>
-                        <button className='image-area-delete-btn'>Delete</button>
-                        </div>
+                <div className='edit-profile-main'>
+                    <div className='edit-profile-title'>
+                        <h2 className='edit-profile-title'>Edit Profile</h2>
                     </div>
-                    <div className='edit-profile-form-area'>
-                        <div className='account-settings'>
-                            <p className='gray-letter'>Account settings</p>
-                            <h3 onClick={handleProfileEditToggle}>Edit profile</h3>
-                            {editProfileOpen && (
-                                <div className='edit-profile-fields'>
-                                    <input type="text" placeholder="User name" value={username} onChange={(e) => setUsername(e.target.value)} />
-                                    <input type="text" placeholder="Full name" value={profile.firstName + ' ' + profile.lastName} onChange={(e) => setProfile({ ...profile, firstName: e.target.value.split(' ')[0], lastName: e.target.value.split(' ')[1] })} />
-                                    <input type="email" placeholder="e-mail address" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                    <input type="date" placeholder="Birthday" value={profile.birthDate} onChange={(e) => setProfile({ ...profile, birthDate: e.target.value })} />
-                                    <button onClick={updateProfile}>Update</button>
-                                </div>
-                            )}
-
-                            <h3 onClick={handleChangePasswordToggle}>Change password</h3>
-                            {changePasswordOpen && (
-                                <div className='change-password-fields'>
-                                    <input type="password" name="oldPassword" placeholder="Old Password" value={password.oldPassword} onChange={handlePasswordChange} />
-                                    <input type="password" name="newPassword" placeholder="New Password" value={password.newPassword} onChange={handlePasswordChange} />
-                                    <input type="password" name="confirmPassword" placeholder="Confirm Password" value={password.confirmPassword} onChange={handlePasswordChange} />
-                                    <button onClick={updatePassword}>Update</button>
-                                </div>
-                            )}
-
-                            <div className='push-notifications'>
-                                <label>Push notifications</label>
-                                <label className="switch">
-                                    <input type="checkbox"/>
-                                    <span className='slider round'></span>
-                                    </label>
+                    <div className='edit-profile-form'>
+                        <div className='edit-profile-image-area'>
+                            <img className='edit-profile-image' src={profile.profileImage} alt="" />
+                            <input type="file" onChange={handleImageChange} />
+                            <div className='btn-area'>
+                                <button className='image-area-edit-btn' onClick={handleImageChange}>Edit</button>
+                                <button className='image-area-delete-btn'>Delete</button>
                             </div>
+                        </div>
+                        <div className='edit-profile-form-area'>
+                            <div className='account-settings'>
+                                <p className='gray-letter'>Account settings</p>
+                                <h3 onClick={handleProfileEditToggle}>Edit profile</h3>
+                                {editProfileOpen && (
+                                    <div className='edit-profile-fields'>
+                                        <input type="text" placeholder="User name" value={username} onChange={(e) => setUsername(e.target.value)} />
+                                        <input type="text" placeholder="Full name" value={profile.firstName + ' ' + profile.lastName} onChange={(e) => setProfile({ ...profile, firstName: e.target.value.split(' ')[0], lastName: e.target.value.split(' ')[1] })} />
+                                        <input type="email" placeholder="e-mail address" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                        <input type="date" placeholder="Birthday" value={profile.birthDate} onChange={(e) => setProfile({ ...profile, birthDate: e.target.value })} />
+                                        <button onClick={updateProfile}>Update</button>
+                                    </div>
+                                )}
 
-                            <div className='more'>
-                                <p className='gray-letter'>More</p>
-                                <h4>Privacy policy</h4>
-                                <h4>Terms and conditions</h4>
+                                <h3 onClick={handleChangePasswordToggle}>Change password</h3>
+                                {changePasswordOpen && (
+                                    <div className='change-password-fields'>
+                                        <input type="password" name="oldPassword" placeholder="Old Password" value={password.oldPassword} onChange={handlePasswordChange} />
+                                        <input type="password" name="newPassword" placeholder="New Password" value={password.newPassword} onChange={handlePasswordChange} />
+                                        <input type="password" name="confirmPassword" placeholder="Confirm Password" value={password.confirmPassword} onChange={handlePasswordChange} />
+                                        <button onClick={updatePassword}>Update</button>
+                                    </div>
+                                )}
+
+                                <div className='push-notifications'>
+                                    <label>Push notifications</label>
+                                    <label className="switch">
+                                        <input type="checkbox" />
+                                        <span className='slider round'></span>
+                                    </label>
+                                </div>
+
+                                <div className='more'>
+                                    <p className='gray-letter'>More</p>
+                                    <h4>Privacy policy</h4>
+                                    <h4>Terms and conditions</h4>
+                                </div>
                             </div>
                         </div>
                     </div>

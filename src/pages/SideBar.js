@@ -58,7 +58,7 @@ const Sidebar = () => {
           src={SidebarMyDocs}
           alt="docs"
         />
-        <span className="sidebar-blue-letter">My Docs</span>
+        <a href="/mydocs" className="sidebar-blue-letter">My Docs</a>
       </div>
       <div className="sidebar-line"></div>
 

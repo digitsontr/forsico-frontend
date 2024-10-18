@@ -1,6 +1,11 @@
 /* profilepage.css */
 
 /* Main layout */
+
+.profile-page-main-div{
+display: flex;
+}
+
 .edit-profile-main {
     display: flex;
     flex-direction: column;

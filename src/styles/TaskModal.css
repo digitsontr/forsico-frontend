@@ -95,8 +95,6 @@
   .modal-content-trello{
     display: flex;
     flex-direction: column;
-    width: 750px;
-    height: 700px;
   }
 
   .taskcard-info-upper-area{
@@ -116,11 +114,13 @@
   }
 
   .taskcard-info-lower-area{
+    margin-top: 1rem;
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
   }
 
   .taskcard-info-left-lower{
+    gap:1rem;
     display: flex;
     flex-direction: column;
     width: 700px;
@@ -147,9 +147,12 @@
   .taskcard-info-description-area{
     width: 100%;
     height:250px ;
+    flex: 1;
   }
 
   .taskcard-info-comment-area{
+    margin-top: 1rem;
+    flex:1;
     width: 100%;
     height:250px ;
   }
@@ -241,5 +244,29 @@
   gap: 1rem;
 }
 
+.modal-wrapper{
+  display: flex;
+  justify-content: center;
+}
 
+.modal-content-trello {
+  width: 1000px;
+  height: 850px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 0 8px rgba(54, 78, 126, 0.1);
+}
+
+.taskcard-info-textarea {
+  width: 90%;
+  height: 90px;
+  border: 1px solid rgba(241, 241, 241, 1);
+  background-color: rgba(241, 241, 241, 1);
+  border-radius: 1rem;
+  padding: 2rem;
+  font-size: 14px;
+  resize: none;
+  cursor: pointer;
+}
   
