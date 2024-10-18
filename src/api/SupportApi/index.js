@@ -6,7 +6,7 @@ class Support {
       title: "Contact Us",
       content: content,
       language: "en",
-      departmentId: 2,
+      departmentId: 1,
       name: fullname,
       email: email,
     });
@@ -15,22 +15,21 @@ class Support {
   async createTicket(ticketInformation) {
     const myHeaders = new Headers();
 
-    const raw = JSON.stringify({
-      title: ticketInformation.title || "",
-      content: `<p>${ticketInformation.content}</p>`,
-      departmentId: ticketInformation.departmentId || 1,
-      language: ticketInformation.language || "en",
-      name: ticketInformation.name || "",
-      email: ticketInformation.email || "",
-      images: ticketInformation.images || 0,
-      apiKey: config.supportApiKey || "",
-      file: null,
-    });
+    const formData = new FormData();
+    formData.append("title", ticketInformation.title || "");
+    formData.append("content", `<p>${ticketInformation.content}</p>`);
+    formData.append("departmentId", ticketInformation.departmentId || 1);
+    formData.append("language", ticketInformation.language || "en");
+    formData.append("name", ticketInformation.name || "");
+    formData.append("email", ticketInformation.email || "");
+    formData.append("images", ticketInformation.images || 0);
+    formData.append("apiKey", config.supportApiKey || "");
+    formData.append("file", null); 
 
     const requestOptions = {
       method: "POST",
       headers: myHeaders,
-      body: raw,
+      body: formData,
       redirect: "follow",
     };
 

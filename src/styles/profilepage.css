@@ -3,7 +3,10 @@
 /* Main layout */
 
 .profile-page-main-div{
-display: flex;
+    margin: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .edit-profile-main {

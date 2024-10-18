@@ -1,5 +1,8 @@
 /* General layout */
 
+.taskboard-main-container{
+    width: 100%;
+}
 
 .taskboard-homepage-layout {
     display: flex;

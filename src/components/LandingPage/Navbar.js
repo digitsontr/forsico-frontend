@@ -7,6 +7,8 @@ import Dropdown from "npm-forsico-ui/dist/Dropdown"
 import '../../styles/navbar.css';
 import { Link } from 'react-router-dom';
 import ForsicoLogoWhite from "../../assets/forsico-logo-white.svg"
+import { useDispatch } from 'react-redux';
+import { setSelectedComponent } from '../../store/selectedComponentSlice';
 
 
 const Navbar = () => {
@@ -14,6 +16,15 @@ const Navbar = () => {
     const [showSignUpModal, setShowSignUpModal] = useState(false);
     const [showSForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
+    const dispatch = useDispatch();
+
+    const handleClick = (comp) => {
+        dispatch(
+          setSelectedComponent({
+              selectedComponent: comp,
+          })
+        );
+      }
 
     const handleSelect = (item) => {
         setSelectedItem(item);
@@ -59,9 +70,8 @@ const Navbar = () => {
             </div>
             </div>
             <div className='navbar-rightside'>
-                <Link className='go-profile' to="/taskboard">TaskBoard</Link>
-                <Link className='go-profile' to="/profilepage">Profile</Link>
-                <Link className='go-profile' to="/taskboardhomepage">TaskBoardHomePage</Link>
+                <a className='go-profile' type="button" onClick={()=>handleClick("profile-page")}>Profile</a>
+                <Link className='go-profile' to="/workspace/mainpage">TaskBoardHomePage</Link>
 
                 <div className='rightside-button login'>
                     <Button Title="Login" onClick={()=>setShowLoginModal(true)} style={{backgroundColor:"#1C3C83" ,color:"#FFF", width:"100px" , height:"40px" , borderRadius:"20px" ,border:"2px solid #FFF" ,fontSize:"15px" }} />
