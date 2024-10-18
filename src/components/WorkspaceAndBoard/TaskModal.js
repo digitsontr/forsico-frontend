@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "../../styles/TaskModal.css";
+import "../../styles/workspaceCss/TaskModal.css";
 import Plus from "../../assets/sidebar-plus-icon.svg"
 import Assignees from "../../assets/taskcard-info-assignees.svg"
 import DueDate from "../../assets/taskcard-info-duedate.svg"

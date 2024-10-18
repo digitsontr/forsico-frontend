@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TaskModal from "./TaskModal";
-import '../../styles/TrelloContentPage.css';
+import '../../styles/workspaceCss/TaskCard.css';
 import { useSelector } from "react-redux";
 
 import rightButton from '../../assets/right-button.svg';
