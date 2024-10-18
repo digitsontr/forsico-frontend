@@ -6,7 +6,7 @@ import linkedInIcon from "../../assets/linkedin-icon.svg";
 import instagramIcon from "../../assets/instagram-icon.svg";
 import twitterIcon from "../../assets/x-icon.svg";
 import Support from "../../api/SupportApi/index";
-import FooterLogo from "../../assets/forsico-logo.svg"
+import FooterLogo from "../../assets/forsico-logo.svg";
 
 const Footer = () => {
   const support = new Support();
@@ -51,6 +51,8 @@ const Footer = () => {
 
     if (ticketState.privacyAccepted) {
       await support.createContactTicket();
+    } else {
+      //TODO show alert
     }
   };
 
@@ -73,9 +75,13 @@ const Footer = () => {
         <div className="footer-input-group">
           <form className="footer-form" type="post" onSubmit={handleFormSubmit}>
             <div className="input-group-footer">
-              <img className="input-group-image" src={fullNameIcon} alt="fullname" />
+              <img
+                className="input-group-image"
+                src={fullNameIcon}
+                alt="fullname"
+              />
               <input
-              className="footer-input"
+                className="footer-input"
                 type="text"
                 value={ticketState.fullName}
                 onChange={handleFullNameChange}
@@ -84,9 +90,13 @@ const Footer = () => {
               />
             </div>
             <div className="input-group-footer">
-              <img className="input-group-image" src={emailIcon} alt="fullname" />
+              <img
+                className="input-group-image"
+                src={emailIcon}
+                alt="fullname"
+              />
               <input
-              className="footer-input"
+                className="footer-input"
                 type="email"
                 value={ticketState.email}
                 onChange={handleEmailChange}
@@ -106,8 +116,15 @@ const Footer = () => {
             </div>
 
             <div className="privacy-policy ">
-              <input className="privacy-input" onChange={handlePrivacyChange} type="checkbox" required />
-              <label className="privacy-label">I have read and accept the privacy policy.</label>
+              <input
+                className="privacy-input"
+                onChange={handlePrivacyChange}
+                type="checkbox"
+                required
+              />
+              <label className="privacy-label">
+                I have read and accept the privacy policy.
+              </label>
             </div>
 
             <button type="submit" className="send-btn">
@@ -124,7 +141,9 @@ const Footer = () => {
           </span>
         </div>
         <div className="footer-middle">
-          <p className="footer-bottom-p">© 2024 Forsico. All rights reserved.</p>
+          <p className="footer-bottom-p">
+            © 2024 Forsico. All rights reserved.
+          </p>
         </div>
         <div className="social-icons">
           <span className="icon linkedin-icon footer-social-icon" href="#">

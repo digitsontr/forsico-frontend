@@ -10,7 +10,7 @@ const MainPage = () => {
     const selected = useSelector((state) => state.selectedComp);
 
     const renderComponent = () => {
-        switch (selected.selectedComponent) {
+        switch (selected.selectedComponent) { //TODO redirect according to the url
         case 'home-page':
             return <HomePage/>
         case 'workspace-ai':
