@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TaskCard from "./TaskCard";
 import authSlice from "../../store/authSlice";
-import "../../styles/Column.css";
+import "../../styles/workspaceCss/TaskList.css";
 import { dragTask } from '../../store/authSlice';
 
 

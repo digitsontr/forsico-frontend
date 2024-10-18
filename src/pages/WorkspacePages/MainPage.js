@@ -5,7 +5,7 @@ import HomePage from './HomePage'
 import Board from "./Board";
 import WorkspaceAI from './WorkspaceAI'
 import { useDispatch, useSelector } from "react-redux";
-import '../../styles/taskboardhomepage.css'; 
+import '../../styles/workspaceCss/homepage.css'; 
 const MainPage = () => {
     const selected = useSelector((state) => state.selectedComp);
 

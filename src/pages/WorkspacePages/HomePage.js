@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../../styles/taskboardhomepage.css'; // CSS dosyasını ayrı tutuyoruz
+import '../../styles/workspaceCss/homepage.css'; // CSS dosyasını ayrı tutuyoruz
 import Sidebar from '../SideBar';
 import Navbar from '../../components/LandingPage/Navbar';
 import Graphic from "../../assets/workspacehomepage-graphic.svg"
