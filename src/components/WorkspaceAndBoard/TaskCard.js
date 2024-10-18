@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TaskModal from "../../modals/TaskModal";
+import TaskModal from "./TaskModal";
 import '../../styles/TrelloContentPage.css';
 import { useSelector } from "react-redux";
 
