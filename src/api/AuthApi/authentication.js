@@ -152,10 +152,10 @@ class Authentication{
         }
     }
 
-    async updateProfile(email, username, firstname, lastname, dateofbirth) {
+    async updateProfile(email, username, firstname, lastname, dateofbirth, token) {
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-    
+        myHeaders.append("Authorization", `Bearer ${token}`); 
         const raw = JSON.stringify({
           email: email,
           username: username,
@@ -266,6 +266,32 @@ class Authentication{
           console.error("Email update confirmation failed:", error);
           throw new Error("An unexpected error occurred. Please try again.");
         }
+    }
+
+    resendConfirmationMail = async (email) => {
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+  
+      const raw = JSON.stringify({
+        email: email
+      });
+  
+      const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+  
+      try {
+        const response = await fetch(`${config.baseUrl}/api/Auth/resendconfirmationmail`, requestOptions);
+        const result = await response.json();
+  
+        return result;
+      } catch (error) {
+        console.error("Resend Confirm Email request failed:", error);
+        throw new Error("An unexpected error occurred. Please try again.");
       }
+  }
 }
 export default Authentication;

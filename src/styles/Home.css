@@ -1,0 +1,42 @@
+/* styles.css */
+.home-container {
+    background-color: #f4f7fd;
+    height: 100vh;
+    display: flex;
+    width: 100vw; /* Ekranın tamamını kaplar */
+    overflow-x: hidden; /* Yatay kaydırmayı gizler */
+    gap: 1.5rem;
+}
+
+.home-container.dark-mode {
+    /* Karanlık mod için stil ekleyebilirsiniz */
+}
+
+.scrollbar-hide {
+    scrollbar-width: none; /* Firefox için kaydırma çubuğunu gizle */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none; /* WebKit tabanlı tarayıcılar için kaydırma çubuğunu gizle */
+}
+
+.new-column-button {
+    display: flex;
+    align-items: start;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.add-task-button{
+    background-color:#36C5F0 ;
+    color:white;
+    border: 1px solid transparent;
+    border-radius:20px ;
+    width:100px;
+    height:40px ;
+    font-size:15px;
+    display: block;
+    align-self: end;
+    margin-bottom: 100px;
+    cursor: pointer;
+}

@@ -297,3 +297,22 @@
     margin-top: 10px;
     text-align: center;
 }
+
+.login-input-email.error {
+    border-color: #ED1E5A; /* Hata rengi (kırmızı) */
+}
+
+.login-input-email.error .login-error-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.login-error-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+

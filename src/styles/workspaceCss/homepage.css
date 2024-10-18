@@ -1,0 +1,272 @@
+/* General layout */
+
+
+.taskboard-homepage-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #f4f7fa;
+    font-family: Arial, sans-serif;
+    height: 100%; /* Full-page height */
+    box-sizing: border-box;
+    width: 100%; /* Content takes the rest of the width */
+}
+
+
+
+/* Message */
+.meet-message {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #1C3C84;
+}
+
+
+.double-card {
+    width: 100%;
+    height: 10.81rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.active-workspaces, .active-task {
+    width: 13rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fs-96 {
+    font-size: 6rem;
+    margin: 0;
+}
+
+.percent-of-completed {
+    background-color: white;
+    width: 27.87rem;
+    height: 8.75rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+}
+
+.completed-title{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.rightside-elements {
+    width: 90%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 100px; /* Smaller height to balance layout */
+}
+
+/* Workspaces section */
+.workspaces-info {
+    margin-top: 20px;
+}
+
+.workspace-general-info-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Individual workspaces */
+.workspace {
+    margin-bottom: 30px;
+}
+
+.workspace-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Workspace cards */
+.workspace-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.workspace-card {
+    background-color: #EFF4FB;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95px; /* Shorter card height to balance */
+    width: 250px;
+}
+
+.workspace-card-upperside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.workspace-card-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.workspace-card-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.workspace-card-middleside {
+    margin: 10px 0;
+}
+
+.workspace-card-lowerside {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.members-image {
+    display: flex;
+}
+
+.members-image .member-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: -1rem;
+}
+
+.total-members {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Workspace general info layout */
+.workspace-general-info {
+    display: flex;
+    gap: 1rem; /* 1rem gap between the divs */
+    width: 100%; /* Full width of the page */
+    box-sizing: border-box;
+    flex-wrap: wrap;
+
+}
+
+
+/* General info left side */
+.general-info-leftside {
+    width: 27.87rem;
+    height: 21.38rem;
+    justify-content: space-evenly;
+}
+
+.general-info-leftside, .general-info-middleside, .general-info-rightside {
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.general-info-middleside{
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: 27.87rem;
+    height: 21.38rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.general-info-rightside{
+    gap: 1rem;
+    width: 27.87rem;
+    height: 21.38rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.active-workspaces, .active-task {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.blue-letter{
+    color: #1C3C84;
+    font-weight: 700;
+}
+
+.turquoise-letter{
+    color: #36C5F0;
+    font-weight: 700;
+}
+
+.green-letter{
+    color: #A1F679;
+    font-weight: 700;
+}
+
+.gray-letter{
+    color: #94a3b8;
+}
+
+.fs-24{
+    font-size: 1.5rem;
+}
+
+.pink-letter{
+    color: #ED1E5A;
+    font-weight: 700;
+}
+
+.active-task-title{
+    color: #36C5F0;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.active-workspace-title{
+    color: #1C3C84;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.workspace-card-line {
+    width: 100%;
+    height: 1px;
+    background-color: #c0c0c0; /* Light gray color */
+}
+
+.taskboard-all-content{
+    display: flex;
+    flex-direction: row;
+}
+
+

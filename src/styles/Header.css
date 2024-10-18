@@ -1,0 +1,90 @@
+.header-container {
+    left: 0;
+    right: 0;
+    background-color: white; /* bg-white */
+    z-index: 50; /* z-50 */
+  }
+  
+  .header-container-dark {
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black; /* dark:text-white */
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* space-x-2 */
+  }
+  
+  .header-left-md {
+    gap: 1rem; /* md:space-x-4 */
+  }
+  
+  .header-logo {
+    width: 1.5rem; /* w-6 */
+    height: 1.5rem; /* h-6 */
+  }
+  
+  .header-title {
+    display: none; /* hidden */
+    font-family: sans-serif; /* font-sans */
+    font-weight: bold; /* font-bold */
+  }
+  
+  .header-title-md {
+    display: inline-block; /* md:inline-block */
+    font-size: 2.25rem; /* md:text-4xl */
+  }
+  
+  .header-board-name {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: bold; /* font-bold */
+    font-family: sans-serif; /* font-sans */
+    max-width: 12.5rem; /* max-w-[200px] */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .header-board-name-md {
+    font-size: 1.5rem; /* md:text-2xl */
+    margin-left: 5rem; /* md:ml-20 */
+  }
+  
+  .header-dropdown-icon {
+    width: 0.75rem; /* w-3 */
+    margin-left: 0.5rem; /* ml-2 */
+    cursor: pointer;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* space-x-4 */
+  }
+  
+  .header-right-md {
+    gap: 1.5rem; /* md:space-x-6 */
+  }
+  
+  .add-task-button {
+    display: none; /* hidden */
+  }
+  
+  .add-task-button-md {
+    display: block; /* md:block */
+  }
+  
+  .button {
+    padding: 0.25rem 0.75rem; /* px-3 py-1 */
+  }
+  
+  .elipsis-icon {
+    height: 1.5rem; /* h-6 */
+    cursor: pointer;
+  }
+  

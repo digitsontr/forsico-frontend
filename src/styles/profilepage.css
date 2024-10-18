@@ -1,0 +1,172 @@
+/* profilepage.css */
+
+/* Main layout */
+
+.profile-page-main-div{
+display: flex;
+}
+
+.edit-profile-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.edit-profile-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.edit-profile-image-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.edit-profile-image-area .edit-profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    background-color:#EFEFEF;
+    cursor: pointer;
+}
+
+.edit-profile-image-area .image-area-edit-btn,.image-area-delete-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    font-size: 14px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 76px;
+    height: 40px;
+}
+
+.edit-profile-image-area .image-area-edit-btn{
+    background-color: rgba(30, 41, 59, 1);
+}
+
+.edit-profile-image-area .image-area-delete-btn{
+    background-color: rgba(237, 30, 90, 1);
+}
+
+.btn-area{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+/* Account settings area */
+.edit-profile-form-area {
+    width: 100%;
+    max-width: 500px;
+}
+
+.account-settings h3 {
+    font-size: 18px;
+    margin: 15px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.account-settings h3::after {
+    content: '>';
+    margin-left: auto;
+    font-size: 18px;
+}
+
+
+.edit-profile-fields,
+.change-password-fields {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.edit-profile-fields input,
+.change-password-fields input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.edit-profile-fields button,
+.change-password-fields button {
+    padding: 10px;
+    background-color: #00c2ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-profile-fields button:hover,
+.change-password-fields button:hover {
+    background-color: #00a0cc;
+}
+
+/* Push notifications */
+.push-notifications {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.push-notifications label {
+    font-size: 16px;
+}
+
+.push-notifications input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+/* More options */
+.more {
+    margin-top: 20px;
+}
+
+.more p {
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .edit-profile-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-profile-image-area {
+        margin-bottom: 20px;
+    }
+
+    .edit-profile-form-area {
+        width: 100%;
+    }
+}

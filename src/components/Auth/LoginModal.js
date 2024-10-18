@@ -5,6 +5,18 @@ import { useNavigate } from 'react-router-dom';
 import '../../styles/loginModal.css';
 import Authentication from '../../api/AuthApi/authentication.js';
 const config = require("../../config");
+import Cross from "../../assets/close.svg"
+import Google from "../../assets/google.svg"
+import Microsoft from "../../assets/microsoft.svg"
+import Password from "../../assets/passwordInput.svg"
+import Email from "../../assets/emailInput.svg"
+import InputError from "../../assets/input-error-icon.svg"
+import PasswordInputEye from "../../assets/passwordInputEye.svg"
+
+
+
+
+
 
 const LoginModal = ({ onClose, signUp, forgotPassword }) => {
     const [email, setEmail] = useState('');
@@ -20,8 +32,18 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
         setPasswordVisible(!passwordVisible);
     };
 
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    };
+
     const handleLogin = async (e) => {
         e.preventDefault();
+
+        if (!validateEmail(email)) {
+            setErrorMessage('Lütfen geçerli bir e-posta adresi girin');
+            return;
+        }
 
         const response = await authentication.login(email, password);
 
@@ -34,9 +56,9 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
             );
 
             onClose();
-            navigate('/projects');
+            navigate('/workspace/mainpage');
         } else {
-            setErrorMessage(response.errors[0].errorMessage); 
+            setErrorMessage(response.errors[0].errorMessage);
         }
     };
 
@@ -63,6 +85,8 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
         };
     }, []);
 
+    
+
     return (
         <div className='login-modal-container'>
             <div className='login-modal-card' ref={modalRef}>
@@ -70,7 +94,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                     <span>
                         <img
                             className='login-modal-close-icon'
-                            src='./cross-icon.svg'
+                            src={Cross}
                             alt='Close'
                             onClick={onClose}
                         />
@@ -93,7 +117,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                         <span>
                             <img
                                 className='login-google-icon'
-                                src='./google.svg'
+                                src={Google}
                                 alt='Google'
                             />
                         </span>
@@ -103,7 +127,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                         <span>
                             <img
                                 className='login-microsoft-icon'
-                                src='./microsoft.svg'
+                                src={Microsoft}
                                 alt='Microsoft'
                             />
                         </span>
@@ -112,28 +136,33 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                 <div className='login-modal-separator'>
                     <span>or</span>
                 </div>
-                <div className='login-modal-input'>
-                    <div className='input-icon-wrapper'>
+                <div className={`login-modal-input ${!validateEmail(email) && email !== '' ? 'error' : ''}`}>
+                    <div className="input-icon-wrapper">
                         <img
-                            src='./emailInput.svg'
-                            className='input-icon'
-                            alt='Icon'
+                            src={Email}
+                            className="input-icon"
+                            alt="Icon"
                         />
                         <input
-                            className='login-input-email'
-                            type='email'
-                            name='email'
+                            className={`login-input-email ${!validateEmail(email) && email !== '' ? 'error' : ''}`}
+                            type="email"
+                            name="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            placeholder='Work e-mail address'
+                            placeholder="E-posta adresiniz"
                         />
+                        {!validateEmail(email) && email !== '' && (
+                            <span className="login-error-icon">
+                                <img src={InputError} alt="Error" />
+                            </span>
+                        )}
                     </div>
                 </div>
                 <div className='login-modal-input'>
                     <div className='input-icon-wrapper'>
                         <img
-                            src='./passwordInput.svg'
+                            src={Password}
                             className='input-icon-left'
                             alt='Password Icon'
                         />
@@ -148,7 +177,7 @@ const LoginModal = ({ onClose, signUp, forgotPassword }) => {
                             placeholder='Password'
                         />
                         <img
-                            src='./passwordInputEye.svg'
+                            src={PasswordInputEye}
                             className='input-icon-right'
                             alt='Toggle Visibility'
                             onClick={togglePasswordVisibility}
