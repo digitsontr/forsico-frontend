@@ -24,6 +24,7 @@ const AppRoutes = () => {
                 <Route path="/workspaceAi" element={<WorkspaceAI />} />
                 <Route path="/workspace/mainpage" element={<MainPage />} />
                 <Route path="/mydocs" element={<MyDocs />} />
+                <Route path="/profilepage" element={<ProfilePage />} />
             </Routes>
         </Router>
     );
